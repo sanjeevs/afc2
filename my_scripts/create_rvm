@@ -1,0 +1,4 @@
+# Steps to create a new gemset.
+rvm use 2.2.4@iter2 --create
+gem install rails -v 4.2.6 --no-ri --no-rdoc
+gem install bundle

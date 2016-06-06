@@ -1,0 +1,32 @@
+rails g scaffold product name unique_name:string:index left_amount:integer adjust:integer unit comment:text
+
+rails g scaffold supply name unique_name:string:index left_amount:integer adjust:integer unit comment:text
+
+
+rails g scaffold customer name unique_name:string:index contact_name address email phone
+
+rails g scaffold producer name unique_name:string:index contact_name address email phone
+
+rails g scaffold supplier name unique_name:string:index contact_name address email phone
+
+rails g scaffold production_run lot_name:string:unique producer:references product:references mfgd_amount:integer mfgd_date:date expiry_date:date  
+
+rails g scaffold product_shipment order_amount:integer return_amount:integer unit ship_date:date  product:references customer:references 
+
+rails g scaffold supply_shipment order_amount:integer return_amount:integer unit ship_date:date  product:references supplier:references 
+
+rails g scaffold supply_consumption supply:references used_amount:integer unit production_run:integer  
+
+rake db:migrate
+
+rails generate bootstrap:install static
+rails g bootstrap:themed products -f
+rails g bootstrap:themed supplies -f
+rails g bootstrap:themed production_runs -f
+rails g bootstrap:themed customers -f
+rails g bootstrap:themed producers -f
+rails g bootstrap:themed suppliers -f
+rails g bootstrap:themed product_shipments -f
+rails g bootstrap:themed supply_shipments -f
+rails g bootstrap:themed supply_consumptions -f
+

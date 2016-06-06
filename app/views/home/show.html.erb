@@ -1,0 +1,54 @@
+<h1>Dashboard</h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">Product Inventory</div>
+  <div class="panel-body">
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name Of Product</th>
+      <th>Present Qty</th>
+      <th>Shipped</th>
+      <th>Return</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%=product.name%></td>
+      <td><%=product.amount%> bottles</td>
+      <td>30 bottles</td>
+      <td>3 bottles</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Supplies Inventory</div>
+  <div class="panel-body">
+<table class="table table-bordered table-stripped table-hover">
+  <thead>
+    <tr>
+      <th>Name Of Supply</th>
+      <th>Present Qty</th>
+      <th>Received</th>
+      <th>Consumed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supplies.each do |supply| %>
+    <tr>
+      <td><%=supply.name%></td>
+      <td><%=supply.amount%> <%= supply.unit %></td>
+      <td>51 kg</td>
+      <td>1 kg</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

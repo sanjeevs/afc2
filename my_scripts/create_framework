@@ -1,0 +1,8 @@
+rm -rf afc
+rails new afc --database=postgresql
+cp Gemfile.template afc/Gemfile
+cd afc
+bundle install
+rake db:drop
+rake db:setup
+

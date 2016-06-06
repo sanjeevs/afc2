@@ -1,0 +1,2 @@
+module SupplyConsumptionsHelper
+end
