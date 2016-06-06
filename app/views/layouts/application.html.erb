@@ -9,50 +9,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse">
-  			<div class="container-fluid">
-    			<div class="navbar-header">
-      				<a class="navbar-brand" href="http://www.apexfoodcompany.com">ApexFoodCompany</a>
-    			</div>
-
-    			<div>
-      				<ul class="nav navbar-nav">
-        				<li class="active"><a href=<%=home_show_path%>>Home</a></li>
-        				<li class="dropdown">
-        					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory <b class="caret"></b></a>
-          					<ul class="dropdown-menu">
-								      <li><a href=<%=products_path%>>Products</a></li>
-								      <li><a href=<%=supplies_path%>>Supplies</a></li>
-							      </ul>        
-        				</li>
-        				<li class="dropdown">
-        					<a href="#" class="dropdown-toggle" data-toggle="dropdown">People <b class="caret"></b></a>
-          					<ul class="dropdown-menu">
-								      <li><a href=<%=customers_path%>>Customers</a></li>
-								      <li><a href=<%=suppliers_path%>>Suppliers</a></li>
-								      <li><a href=<%=producers_path%>>Producers</a></li>
-							      </ul>        
-        				</li>
-        				<li class="dropdown">
-        					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Shipment <b class="caret"></b></a>
-          					<ul class="dropdown-menu">
-								      <li><a href=<%=product_shipments_path%>>Product Shipment</a></li>
-								      <li><a href=<%=supply_shipments_path%>>Supply Rcvd</a></li>
-							      </ul>        
-        				</li>
-        				<li class="dropdown">
-        					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Production <b class="caret"></b></a>
-          					<ul class="dropdown-menu">
-								      <li><a href=<%=production_runs_path%>>Runs</a></li>
-								      <li><a href=<%=supply_consumptions_path%>>Supplies used</a></li>
-							      </ul>        
-        				</li>
-
-      				</ul>
-    			</div>
-  			</div>
-		</nav>
-	
+<%= render 'layouts/header' %>
 <div class="container">
 <% flash.each do |name, msg| %>
   <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

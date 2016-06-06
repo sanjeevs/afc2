@@ -1,3 +1,5 @@
+
+rails g scaffold user name:string:unique password_digest remember_token admin:boolean
 rails g scaffold product name unique_name:string:index left_amount:integer adjust:integer unit comment:text
 
 rails g scaffold supply name unique_name:string:index left_amount:integer adjust:integer unit comment:text
@@ -29,4 +31,5 @@ rails g bootstrap:themed suppliers -f
 rails g bootstrap:themed product_shipments -f
 rails g bootstrap:themed supply_shipments -f
 rails g bootstrap:themed supply_consumptions -f
+rails g bootstrap:themed users -f
 

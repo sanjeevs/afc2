@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get '/home/show'
   root 'home#show'
+  resources :sessions, only: [ :new, :create, :destroy ] 
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   resources :supply_consumptions
   resources :supply_shipments
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :supplies
   resources :products
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
