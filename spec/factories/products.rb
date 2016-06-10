@@ -1,9 +1,7 @@
 FactoryGirl.define do
   factory :product do
-    name "MyString"
-    unique_name "MyString"
+    sequence(:name) { |n| "Product #{n}" }
     left_amount 1
-    adjust 1
     unit "MyString"
     comment "MyText"
   end

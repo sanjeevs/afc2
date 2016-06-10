@@ -1,10 +1,9 @@
 FactoryGirl.define do
   factory :customer do
-    name "MyString"
-    unique_name "MyString"
-    contact_name "MyString"
-    address "MyString"
-    email "MyString"
+    sequence(:name) { |n| "Customer_#{n}" }
+    sequence(:contact_name) { |n| "contact_name_#{n}" }
+    address "customer address"
+    email "customer email"
     phone "MyString"
   end
 end
