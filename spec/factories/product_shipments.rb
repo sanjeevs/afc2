@@ -4,7 +4,7 @@ FactoryGirl.define do
     return_amount 1
     unit "MyString"
     ship_date "2016-06-05"
-    product nil
-    customer nil
+    product
+    customer
   end
 end

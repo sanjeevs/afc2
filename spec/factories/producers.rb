@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :producer do
-    name "MyString"
-    unique_name "MyString"
-    contact_name "MyString"
+    sequence(:name) { |n| "Producer_#{n}" }
+    contact_name "Contact"
     address "MyString"
     email "MyString"
     phone "MyString"

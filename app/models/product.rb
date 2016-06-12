@@ -22,5 +22,6 @@ class Product < ActiveRecord::Base
     def default_values
       self.left_amount ||= 0
       self.adjust ||= 0
+      self.unit ||= "bottles"
     end
 end

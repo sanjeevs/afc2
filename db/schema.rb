@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606031849) do
+ActiveRecord::Schema.define(version: 20160610214821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160606031849) do
     t.date     "expiry_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "unit"
   end
 
   add_index "production_runs", ["producer_id"], name: "index_production_runs_on_producer_id", using: :btree
@@ -113,11 +114,12 @@ ActiveRecord::Schema.define(version: 20160606031849) do
     t.integer  "supply_id"
     t.integer  "used_amount"
     t.string   "unit"
-    t.integer  "production_run"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "production_run_id"
   end
 
+  add_index "supply_consumptions", ["production_run_id"], name: "index_supply_consumptions_on_production_run_id", using: :btree
   add_index "supply_consumptions", ["supply_id"], name: "index_supply_consumptions_on_supply_id", using: :btree
 
   create_table "supply_shipments", force: :cascade do |t|

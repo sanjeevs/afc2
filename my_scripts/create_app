@@ -17,7 +17,7 @@ rails g scaffold product_shipment order_amount:integer return_amount:integer uni
 
 rails g scaffold supply_shipment order_amount:integer return_amount:integer unit ship_date:date  product:references supplier:references 
 
-rails g scaffold supply_consumption supply:references used_amount:integer unit production_run:integer  
+rails g scaffold supply_consumption supply:references used_amount:integer unit production_run:references
 
 rake db:migrate
 
