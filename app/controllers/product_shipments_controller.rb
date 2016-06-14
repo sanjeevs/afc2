@@ -1,4 +1,5 @@
 class ProductShipmentsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_product_shipment, only: [:show, :edit, :update, :destroy]
 
   # GET /product_shipments

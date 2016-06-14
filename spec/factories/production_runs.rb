@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :production_run do
-    lot_name "MyString"
+    sequence(:lot_name) { |n| "Lot Name #{n}" }
     producer 
     product 
     mfgd_amount 1

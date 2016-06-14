@@ -3,7 +3,11 @@ class Product < ActiveRecord::Base
   before_save :default_values
 
   before_validation do |product| 
-    product.unique_name = name.downcase.gsub(/\s+/, "")
+    if name
+      product.unique_name = name.downcase.gsub(/\s+/, "")
+    else
+      product.unique_name = nil
+    end
   end
 
   validates :unique_name, presence: true, uniqueness: true, length: { maximum: 50 }

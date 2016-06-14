@@ -24,17 +24,20 @@ RSpec.describe SupplyShipmentsController, type: :controller do
   # SupplyShipment. As you add validations to SupplyShipment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { product_id: FactoryGirl.create(:product).id, supplier_id: FactoryGirl.create(:supplier).id }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { product_id: nil }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SupplyShipmentsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  def valid_session 
+    allow(controller).to receive_messages(:signed_in? => true)
+  end
+
 
   describe "GET #index" do
     it "assigns all supply_shipments as @supply_shipments" do
@@ -103,14 +106,14 @@ RSpec.describe SupplyShipmentsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { order_amount: 100 }
       }
 
       it "updates the requested supply_shipment" do
         supply_shipment = SupplyShipment.create! valid_attributes
         put :update, {:id => supply_shipment.to_param, :supply_shipment => new_attributes}, valid_session
         supply_shipment.reload
-        skip("Add assertions for updated state")
+        expect(supply_shipment.order_amount).to eql(100)
       end
 
       it "assigns the requested supply_shipment as @supply_shipment" do

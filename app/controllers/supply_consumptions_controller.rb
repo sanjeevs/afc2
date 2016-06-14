@@ -1,4 +1,5 @@
 class SupplyConsumptionsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_supply_consumption, only: [:show, :edit, :update, :destroy]
 
   # GET /supply_consumptions
@@ -69,6 +70,6 @@ class SupplyConsumptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_consumption_params
-      params.require(:supply_consumption).permit(:supply_id, :used_amount, :unit, :production_run)
+      params.require(:supply_consumption).permit(:supply_id, :used_amount, :unit, :production_run_id)
     end
 end

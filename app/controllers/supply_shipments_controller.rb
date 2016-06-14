@@ -1,4 +1,5 @@
 class SupplyShipmentsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_supply_shipment, only: [:show, :edit, :update, :destroy]
 
   # GET /supply_shipments

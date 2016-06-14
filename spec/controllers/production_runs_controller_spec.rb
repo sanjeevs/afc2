@@ -24,17 +24,20 @@ RSpec.describe ProductionRunsController, type: :controller do
   # ProductionRun. As you add validations to ProductionRun, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { lot_name: 'prod run', producer_id: FactoryGirl.create(:product).id, product_id: FactoryGirl.create(:producer).id }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { product_id: nil }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ProductionRunsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  def valid_session 
+    allow(controller).to receive_messages(:signed_in? => true)
+  end
+
 
   describe "GET #index" do
     it "assigns all production_runs as @production_runs" do
@@ -103,14 +106,14 @@ RSpec.describe ProductionRunsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { lot_name: "new run" }
       }
 
       it "updates the requested production_run" do
         production_run = ProductionRun.create! valid_attributes
         put :update, {:id => production_run.to_param, :production_run => new_attributes}, valid_session
         production_run.reload
-        skip("Add assertions for updated state")
+        expect(production_run.lot_name).to eql('new run')
       end
 
       it "assigns the requested production_run as @production_run" do

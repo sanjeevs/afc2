@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :supply do
-    name "MyString"
+    sequence(:name) { |n| "supply #{n}" }
     unit "MyString"
     comment "MyText"
   end

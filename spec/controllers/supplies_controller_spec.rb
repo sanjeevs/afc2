@@ -24,17 +24,19 @@ RSpec.describe SuppliesController, type: :controller do
   # Supply. As you add validations to Supply, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: 'supply' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '' }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SuppliesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  def valid_session 
+    allow(controller).to receive_messages(:signed_in? => true)
+  end
 
   describe "GET #index" do
     it "assigns all supplies as @supplies" do
@@ -103,14 +105,14 @@ RSpec.describe SuppliesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'new supply' }
       }
 
       it "updates the requested supply" do
         supply = Supply.create! valid_attributes
         put :update, {:id => supply.to_param, :supply => new_attributes}, valid_session
         supply.reload
-        skip("Add assertions for updated state")
+        expect(supply.name).to eql('new supply')
       end
 
       it "assigns the requested supply as @supply" do
