@@ -38,7 +38,12 @@ RSpec.describe User, type: :model do
   it { expect(@user.remember_token).to_not be_blank }
  end
 
-  describe "with admin set to true" do
+ describe "default value of admin" do
+  before { @user.admin == "" && @user.save! }
+  it { expect(@user.admin).to eql(false) }
+ end
+
+ describe "with admin set to true" do
     before { @user.toggle!(:admin) }
     it { should be_admin }
   end

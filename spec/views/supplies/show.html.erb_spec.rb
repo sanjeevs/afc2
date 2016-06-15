@@ -4,7 +4,6 @@ RSpec.describe "supplies/show", type: :view do
   before(:each) do
     @supply = assign(:supply, Supply.create!(
       :name => "Name",
-      :unique_name => "Unique Name",
       :left_amount => 1,
       :adjust => 2,
       :unit => "Unit",
@@ -15,7 +14,7 @@ RSpec.describe "supplies/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Name/)
-    expect(rendered).to match(/Unique Name/)
+    expect(rendered).to match(/name/)
     expect(rendered).to match(/1/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(/Unit/)

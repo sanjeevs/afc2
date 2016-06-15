@@ -27,7 +27,7 @@ RSpec.describe "products/new", type: :view do
 
       assert_select "input#product_unit[name=?]", "product[unit]"
 
-      assert_select "textarea#product_comment[name=?]", "product[comment]"
+      assert_select "input#product_comment[name=?]", "product[comment]"
     end
   end
 end

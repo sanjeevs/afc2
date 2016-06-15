@@ -4,8 +4,8 @@ RSpec.describe "users/show", type: :view do
   before(:each) do
     @user = assign(:user, User.create!(
       :name => "Name",
-      :password_digest => "Password Digest",
-      :remember_token => "Remember Token",
+      :password => "foobar",
+      :password_confirmation => "foobar",
       :admin => false
     ))
   end
@@ -13,8 +13,6 @@ RSpec.describe "users/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Name/)
-    expect(rendered).to match(/Password Digest/)
-    expect(rendered).to match(/Remember Token/)
     expect(rendered).to match(/false/)
   end
 end
