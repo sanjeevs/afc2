@@ -6,8 +6,8 @@ RSpec.describe "supply_shipments/show", type: :view do
       :order_amount => 1,
       :return_amount => 2,
       :unit => "Unit",
-      :product => nil,
-      :supplier => nil
+      :product => Product.create!(name: 'product'),
+      :supplier => Supplier.create!(name: 'supplier')
     ))
   end
 

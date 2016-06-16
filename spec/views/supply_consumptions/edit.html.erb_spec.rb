@@ -3,10 +3,12 @@ require 'rails_helper'
 RSpec.describe "supply_consumptions/edit", type: :view do
   before(:each) do
     @supply_consumption = assign(:supply_consumption, SupplyConsumption.create!(
-      :supply => nil,
+      :supply => Supply.create!(name: 'supply'),
       :used_amount => 1,
       :unit => "MyString",
-      :production_run => 1
+      :production_run => ProductionRun.create!(lot_name: 'prod1',
+        producer: Producer.create!(name: 'producer'),
+        product: Product.create!(name: 'product')) 
     ))
   end
 

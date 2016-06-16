@@ -6,8 +6,8 @@ RSpec.describe "product_shipments/edit", type: :view do
       :order_amount => 1,
       :return_amount => 1,
       :unit => "MyString",
-      :product => nil,
-      :customer => nil
+      :product => Product.create!(name: 'product'),
+      :customer => Customer.create!(name: 'customer') 
     ))
   end
 

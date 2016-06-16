@@ -4,7 +4,6 @@ RSpec.describe "suppliers/new", type: :view do
   before(:each) do
     assign(:supplier, Supplier.new(
       :name => "MyString",
-      :unique_name => "MyString",
       :contact_name => "MyString",
       :address => "MyString",
       :email => "MyString",
@@ -19,7 +18,6 @@ RSpec.describe "suppliers/new", type: :view do
 
       assert_select "input#supplier_name[name=?]", "supplier[name]"
 
-      assert_select "input#supplier_unique_name[name=?]", "supplier[unique_name]"
 
       assert_select "input#supplier_contact_name[name=?]", "supplier[contact_name]"
 

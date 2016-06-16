@@ -4,7 +4,6 @@ RSpec.describe "producers/new", type: :view do
   before(:each) do
     assign(:producer, Producer.new(
       :name => "MyString",
-      :unique_name => "MyString",
       :contact_name => "MyString",
       :address => "MyString",
       :email => "MyString",
@@ -18,8 +17,6 @@ RSpec.describe "producers/new", type: :view do
     assert_select "form[action=?][method=?]", producers_path, "post" do
 
       assert_select "input#producer_name[name=?]", "producer[name]"
-
-      assert_select "input#producer_unique_name[name=?]", "producer[unique_name]"
 
       assert_select "input#producer_contact_name[name=?]", "producer[contact_name]"
 

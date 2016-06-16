@@ -4,8 +4,8 @@ RSpec.describe "production_runs/edit", type: :view do
   before(:each) do
     @production_run = assign(:production_run, ProductionRun.create!(
       :lot_name => "MyString",
-      :producer => nil,
-      :product => nil,
+      :producer => Producer.create!(name: 'producer'),
+      :product => Product.create!(name: 'Product'),
       :mfgd_amount => 1
     ))
   end
