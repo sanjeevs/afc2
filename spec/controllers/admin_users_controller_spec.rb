@@ -29,7 +29,7 @@ RSpec.describe UsersController, type: :controller do
     it "assigns all users as @users" do
       controller.current_user = @admin_user
       get :index, {}
-      expect(assigns(:users)).to eq([@admin_user, @non_admin_user])
+      response.should render_template :index
     end
   end
 
@@ -61,7 +61,7 @@ RSpec.describe UsersController, type: :controller do
     it "should be able to edit another user" do
       controller.current_user = @admin_user
       get :edit, {:id => @non_admin_user.id}
-      expect(assigns(:user)).to eq(@non_admin_user)
+      response.should render_template :edit
     end
   end
 

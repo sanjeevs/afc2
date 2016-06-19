@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in @user
       flash[:success] = "User created"
       redirect_to @user
     else
@@ -57,7 +56,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to signin_url, notice: "Wrong user #{current_user.name}, Please sign in" unless current_user?(@user)
+      redirect_to signin_url, notice: "Wrong user #{current_user.name}, Please sign in" unless current_user?(@user) || current_user.admin?
     end
 
     def admin_user
