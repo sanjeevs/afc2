@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, 
                 only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:new, :index, :destroy]
 
   def new
     @user = User.new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all #User.paginate(page: params[:page])
   end
 
   def show
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(signin_path) unless current_user.admin?
     end
 
 end
