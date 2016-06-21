@@ -13,8 +13,16 @@ class Supply < ActiveRecord::Base
   # supply then there is no consumption.
   has_many :supply_consumptions, dependent: :destroy
 
+  # A supply has many shipments. If suppy is not there then there cannot
+  # be any shipments.
+  has_many :supply_shipments, dependent: :destroy
+
   def total_consumptions
     supply_consumptions.sum(:used_amount)
+  end
+
+  def total_shipments
+    supply_shipments.sum(:order_amount)
   end
 
   private

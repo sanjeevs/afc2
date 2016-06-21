@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614121606) do
+ActiveRecord::Schema.define(version: 20160621232904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,14 +127,14 @@ ActiveRecord::Schema.define(version: 20160614121606) do
     t.integer  "return_amount"
     t.string   "unit"
     t.date     "ship_date"
-    t.integer  "product_id"
     t.integer  "supplier_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "supply_id"
   end
 
-  add_index "supply_shipments", ["product_id"], name: "index_supply_shipments_on_product_id", using: :btree
   add_index "supply_shipments", ["supplier_id"], name: "index_supply_shipments_on_supplier_id", using: :btree
+  add_index "supply_shipments", ["supply_id"], name: "index_supply_shipments_on_supply_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -150,6 +150,6 @@ ActiveRecord::Schema.define(version: 20160614121606) do
   add_foreign_key "production_runs", "producers"
   add_foreign_key "production_runs", "products"
   add_foreign_key "supply_consumptions", "supplies"
-  add_foreign_key "supply_shipments", "products"
   add_foreign_key "supply_shipments", "suppliers"
+  add_foreign_key "supply_shipments", "supplies"
 end
