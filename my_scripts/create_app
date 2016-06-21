@@ -15,7 +15,7 @@ rails g scaffold production_run lot_name:string:unique producer:references produ
 
 rails g scaffold product_shipment order_amount:integer return_amount:integer unit ship_date:date  product:references customer:references 
 
-rails g scaffold supply_shipment order_amount:integer return_amount:integer unit ship_date:date  product:references supplier:references 
+rails g scaffold supply_shipment order_amount:integer return_amount:integer unit ship_date:date  supply:references supplier:references 
 
 rails g scaffold supply_consumption supply:references used_amount:integer unit production_run:references
 
