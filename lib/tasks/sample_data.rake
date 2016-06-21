@@ -1,10 +1,15 @@
+require 'factory_girl'
+
 namespace :db do
   desc "Fill database with sample value"
 
   task sample_populate: :environment do
-    admin = User.create!(name: 'sanjeev',
-                         password: '@anu123',
-                         password_confirmation: "@anu123",
-                         admin: true)
+    puts "Resetting the database"
+    Rake::Task['db:reset'].invoke
+    puts "Creating Sample Run"
+    FactoryGirl.create :production_run
+    FactoryGirl.create :product_shipment
+    FactoryGirl.create :supply_consumption
+    FactoryGirl.create :supply_shipment
   end
 end

@@ -22,6 +22,18 @@ class Product < ActiveRecord::Base
   # A product is produced from multiple runs. If no product then no runs.
   has_many :production_runs, dependent: :destroy
 
+  def total_shipments
+    product_shipments.sum(:order_amount)
+  end
+
+  def total_returns
+    product_shipments.sum(:return_amount)
+  end
+
+  def total_produced
+    production_runs.sum(:mfgd_amount)
+  end
+
   private
     def default_values
       self.left_amount ||= 0

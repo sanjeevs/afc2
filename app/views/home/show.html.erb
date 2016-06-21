@@ -5,10 +5,10 @@
 <table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
-      <th>Name Of Product</th>
-      <th>Present Qty</th>
-      <th>Shipped</th>
-      <th>Return</th>
+      <th>Product</th>
+      <th>Amount Left</th>
+      <th>Amount Shipped</th>
+      <th>Amount Return</th>
     </tr>
   </thead>
 
@@ -16,9 +16,9 @@
     <% @products.each do |product| %>
     <tr>
       <td><%=product.name%></td>
-      <td><%=product.amount%> bottles</td>
-      <td>30 bottles</td>
-      <td>3 bottles</td>
+      <td><%=product.left_amount%> <%= product.unit%></td>
+      <td><%=product.total_shipments%> <%= product.unit%></td>
+      <td><%=product.total_returns%> <%= product.unit%></td>
     </tr>
     <% end %>
   </tbody>
@@ -32,10 +32,10 @@
 <table class="table table-bordered table-stripped table-hover">
   <thead>
     <tr>
-      <th>Name Of Supply</th>
-      <th>Present Qty</th>
-      <th>Received</th>
-      <th>Consumed</th>
+      <th>Supply</th>
+      <th>Amount Left</th>
+      <th>Amount Rcvd</th>
+      <th>Amount Consumed</th>
     </tr>
   </thead>
 
@@ -43,9 +43,9 @@
     <% @supplies.each do |supply| %>
     <tr>
       <td><%=supply.name%></td>
-      <td><%=supply.amount%> <%= supply.unit %></td>
+      <td><%=supply.left_amount%> <%= supply.unit %></td>
       <td>51 kg</td>
-      <td>1 kg</td>
+      <td><%= supply.total_consumptions%> <%= supply.unit%></td>
     </tr>
     <% end %>
   </tbody>
