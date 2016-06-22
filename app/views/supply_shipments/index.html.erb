@@ -7,10 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:order_amount) %></th>
-      <th><%= model_class.human_attribute_name(:return_amount) %></th>
-      <th><%= model_class.human_attribute_name(:unit) %></th>
       <th><%= model_class.human_attribute_name(:ship_date) %></th>
-      <th><%= model_class.human_attribute_name(:product_id) %></th>
+      <th><%= model_class.human_attribute_name(:supply_id) %></th>
       <th><%= model_class.human_attribute_name(:supplier_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -21,10 +19,8 @@
       <tr>
         <td><%= link_to supply_shipment.id, supply_shipment_path(supply_shipment) %></td>
         <td><%= supply_shipment.order_amount %></td>
-        <td><%= supply_shipment.return_amount %></td>
-        <td><%= supply_shipment.unit %></td>
         <td><%= supply_shipment.ship_date %></td>
-        <td><%= supply_shipment.product_id %></td>
+        <td><%= supply_shipment.supply_id %></td>
         <td><%= supply_shipment.supplier_id %></td>
         <td><%=l supply_shipment.created_at %></td>
         <td>

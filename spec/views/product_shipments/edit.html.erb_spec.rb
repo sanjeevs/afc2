@@ -5,7 +5,6 @@ RSpec.describe "product_shipments/edit", type: :view do
     @product_shipment = assign(:product_shipment, ProductShipment.create!(
       :order_amount => 1,
       :return_amount => 1,
-      :unit => "MyString",
       :product => Product.create!(name: 'product'),
       :customer => Customer.create!(name: 'customer') 
     ))
@@ -20,7 +19,6 @@ RSpec.describe "product_shipments/edit", type: :view do
 
       assert_select "input#product_shipment_return_amount[name=?]", "product_shipment[return_amount]"
 
-      assert_select "input#product_shipment_unit[name=?]", "product_shipment[unit]"
 
       assert_select "input#product_shipment_product_id[name=?]", "product_shipment[product_id]"
 

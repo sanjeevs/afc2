@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:supply_id) %></th>
       <th><%= model_class.human_attribute_name(:used_amount) %></th>
-      <th><%= model_class.human_attribute_name(:unit) %></th>
       <th><%= model_class.human_attribute_name(:production_run) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -20,7 +19,6 @@
         <td><%= link_to supply_consumption.id, supply_consumption_path(supply_consumption) %></td>
         <td><%= supply_consumption.supply_id %></td>
         <td><%= supply_consumption.used_amount %></td>
-        <td><%= supply_consumption.unit %></td>
         <td><%= supply_consumption.production_run %></td>
         <td><%=l supply_consumption.created_at %></td>
         <td>

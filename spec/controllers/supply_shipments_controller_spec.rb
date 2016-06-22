@@ -24,7 +24,7 @@ RSpec.describe SupplyShipmentsController, type: :controller do
   # SupplyShipment. As you add validations to SupplyShipment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { product_id: FactoryGirl.create(:product).id, supplier_id: FactoryGirl.create(:supplier).id }
+    { supply_id: FactoryGirl.create(:supply).id, supplier_id: FactoryGirl.create(:supplier).id }
   }
 
   let(:invalid_attributes) {

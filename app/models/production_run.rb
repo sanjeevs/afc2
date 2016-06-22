@@ -12,7 +12,6 @@ class ProductionRun < ActiveRecord::Base
 
   private
   def set_default
-    self.unit ||= "bottles"
     self.mfgd_amount ||= 0
   end
 end

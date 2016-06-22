@@ -6,7 +6,6 @@ RSpec.describe "supply_consumptions/index", type: :view do
       SupplyConsumption.create!(
       :supply => Supply.create!(name: 'supply1'),
       :used_amount => 1,
-      :unit => "Unit",
       :production_run => ProductionRun.create!(lot_name: 'prod1',
       producer: Producer.create!(name: 'producer1'),
       product: Product.create!(name: 'product1')) 
@@ -14,7 +13,6 @@ RSpec.describe "supply_consumptions/index", type: :view do
       SupplyConsumption.create!(
       :supply => Supply.create!(name: 'supply2'),
       :used_amount => 1,
-      :unit => "Unit",
       :production_run => ProductionRun.create!(lot_name: 'prod2',
       producer: Producer.create!(name: 'producer2'),
       product: Product.create!(name: 'product2')) 
@@ -24,6 +22,5 @@ RSpec.describe "supply_consumptions/index", type: :view do
 
   it "renders a list of supply_consumptions" do
     render
-    assert_select "tr>td", :text => "Unit".to_s, :count => 2
   end
 end

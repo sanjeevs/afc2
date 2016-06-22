@@ -4,9 +4,7 @@ RSpec.describe "supply_shipments/new", type: :view do
   before(:each) do
     assign(:supply_shipment, SupplyShipment.new(
       :order_amount => 1,
-      :return_amount => 1,
-      :unit => "MyString",
-      :product => Product.create!(name: 'product'),
+      :supply => Supply.create!(name: 'supply'),
       :supplier => Supplier.create!(name: 'supplier')
     ))
   end
@@ -18,11 +16,8 @@ RSpec.describe "supply_shipments/new", type: :view do
 
       assert_select "input#supply_shipment_order_amount[name=?]", "supply_shipment[order_amount]"
 
-      assert_select "input#supply_shipment_return_amount[name=?]", "supply_shipment[return_amount]"
 
-      assert_select "input#supply_shipment_unit[name=?]", "supply_shipment[unit]"
-
-      assert_select "input#supply_shipment_product_id[name=?]", "supply_shipment[product_id]"
+      assert_select "input#supply_shipment_supply_id[name=?]", "supply_shipment[supply_id]"
 
       assert_select "input#supply_shipment_supplier_id[name=?]", "supply_shipment[supplier_id]"
     end

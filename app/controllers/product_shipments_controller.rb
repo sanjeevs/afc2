@@ -70,6 +70,6 @@ class ProductShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_shipment_params
-      params.require(:product_shipment).permit(:order_amount, :return_amount, :unit, :ship_date, :product_id, :customer_id)
+      params.require(:product_shipment).permit(:order_amount, :return_amount, :ship_date, :product_id, :customer_id)
     end
 end

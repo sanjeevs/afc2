@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:order_amount) %></th>
       <th><%= model_class.human_attribute_name(:return_amount) %></th>
-      <th><%= model_class.human_attribute_name(:unit) %></th>
       <th><%= model_class.human_attribute_name(:ship_date) %></th>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:customer_id) %></th>
@@ -22,7 +21,6 @@
         <td><%= link_to product_shipment.id, product_shipment_path(product_shipment) %></td>
         <td><%= product_shipment.order_amount %></td>
         <td><%= product_shipment.return_amount %></td>
-        <td><%= product_shipment.unit %></td>
         <td><%= product_shipment.ship_date %></td>
         <td><%= product_shipment.product_id %></td>
         <td><%= product_shipment.customer_id %></td>

@@ -12,7 +12,4 @@ RSpec.describe ProductionRun, type: :model do
   end
 
 
-  describe "default value of unit" do
-    it { expect(@production_run.unit).to eq("bottles") }
-  end
 end

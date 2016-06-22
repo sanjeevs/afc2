@@ -13,6 +13,5 @@ class ProductShipment < ActiveRecord::Base
   def set_defaults
     self.order_amount ||= 0
     self.return_amount ||= 0
-    self.unit ||= "bottles"
   end
 end
