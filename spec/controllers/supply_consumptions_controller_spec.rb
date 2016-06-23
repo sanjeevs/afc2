@@ -24,8 +24,11 @@ RSpec.describe SupplyConsumptionsController, type: :controller do
   # SupplyConsumption. As you add validations to SupplyConsumption, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { supply_id: FactoryGirl.create(:supply).id, 
-      production_run_id: FactoryGirl.create(:production_run).id }
+    product = Product.create!(name: 'new product')
+    producer = Producer.create!(name: 'new product')
+    production_run = ProductionRun.create!(lot_name: 'supply lot name', product_id: product.id, producer_id: producer.id)
+    supply = Supply.create!(name: 'any name')
+    {production_run_id: production_run.id, supply_id: supply.id}
   }
 
   let(:invalid_attributes) {

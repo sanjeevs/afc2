@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "home/show", type: :view do
-  before(:all) do
-    @product = FactoryGirl.create(:product)
-    @supply = FactoryGirl.create(:supply)
-    @products = Product.all
-    @supplies = Supply.all
+  before(:each) do
+    product = Product.new(name: 'Home product')
+    supply = Supply.new(name: 'Home supply')
+    @products = [product] 
+    @supplies = [supply] 
   end
 
   it "renders attributes in <p>" do

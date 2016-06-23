@@ -24,7 +24,9 @@ RSpec.describe ProductionRunsController, type: :controller do
   # ProductionRun. As you add validations to ProductionRun, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { lot_name: 'prod run', product_id: FactoryGirl.create(:product).id, producer_id: FactoryGirl.create(:producer).id }
+    product = Product.create!(name: 'new product')
+    producer = Producer.create!(name: 'new product')
+    { lot_name: 'prod run', product_id: product.id, producer_id: producer.id }
   }
 
   let(:invalid_attributes) {

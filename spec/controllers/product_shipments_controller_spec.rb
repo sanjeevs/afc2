@@ -24,8 +24,10 @@ RSpec.describe ProductShipmentsController, type: :controller do
   # ProductShipment. As you add validations to ProductShipment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { product_id: FactoryGirl.create(:product).id,
-      customer_id: FactoryGirl.create(:customer).id }
+    product = Product.create!(name: 'cntlr product')
+    customer = Customer.create!(name: 'customer')
+    { product_id: product.id,
+      customer_id: customer.id }
   }
 
   let(:invalid_attributes) {

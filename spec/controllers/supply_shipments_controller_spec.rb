@@ -24,11 +24,13 @@ RSpec.describe SupplyShipmentsController, type: :controller do
   # SupplyShipment. As you add validations to SupplyShipment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { supply_id: FactoryGirl.create(:supply).id, supplier_id: FactoryGirl.create(:supplier).id }
+    supply = Supply.create!(name: 'my name')
+    supplier = Supplier.create!(name: 'my name')
+    { supply_id: supply.id, supplier_id: supplier.id }
   }
 
   let(:invalid_attributes) {
-    { product_id: nil }
+    { supply_id: nil }
   }
 
   # This should return the minimal set of values that should be in the session
