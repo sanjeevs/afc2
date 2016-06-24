@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to product.id, product_path(product) %></td>
         <td><%= product.name %></td>
-        <td><%= product.left_amount %> <%= product.unit %></td>
-        <td><%= product.adjust %> <%= product.unit %></td>
+        <td><%= pluralize(product.left_amount, product.unit)%></td>
+        <td><%= pluralize(product.adjust, product.unit)%></td>
         <td><%= product.comment %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.detail")),
