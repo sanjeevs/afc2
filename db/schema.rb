@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622124258) do
+ActiveRecord::Schema.define(version: 20160623224434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 20160622124258) do
     t.integer  "order_amount"
     t.integer  "return_amount"
     t.date     "ship_date"
-    t.integer  "product_id"
     t.integer  "customer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "production_run_id"
   end
 
   add_index "product_shipments", ["customer_id"], name: "index_product_shipments_on_customer_id", using: :btree
-  add_index "product_shipments", ["product_id"], name: "index_product_shipments_on_product_id", using: :btree
+  add_index "product_shipments", ["production_run_id"], name: "index_product_shipments_on_production_run_id", using: :btree
 
   create_table "production_runs", force: :cascade do |t|
     t.string   "lot_name"
@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20160622124258) do
   end
 
   add_foreign_key "product_shipments", "customers"
-  add_foreign_key "product_shipments", "products"
+  add_foreign_key "product_shipments", "production_runs"
   add_foreign_key "production_runs", "producers"
   add_foreign_key "production_runs", "products"
   add_foreign_key "supply_consumptions", "supplies"

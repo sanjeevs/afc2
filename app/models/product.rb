@@ -17,17 +17,24 @@ class Product < ActiveRecord::Base
   # A product has many supplies shipment. If no product then supplies 
   # continue to remain.
   has_many :supply_shipments
-  # A product has many shipments. If no product then no shipments.
-  has_many :product_shipments, dependent: :destroy
+  
   # A product is produced from multiple runs. If no product then no runs.
   has_many :production_runs, dependent: :destroy
 
   def total_shipments
-    product_shipments.sum(:order_amount)
+    sum = 0
+    production_runs.each do |production_run|
+      sum += production_run.product_shipments.sum(:order_amount)
+    end
+    sum
   end
 
   def total_returns
-    product_shipments.sum(:return_amount)
+    sum = 0
+    production_runs.each do |production_run|
+      sum += production_run.product_shipments.sum(:return_amount)
+    end
+    sum
   end
 
   def total_produced

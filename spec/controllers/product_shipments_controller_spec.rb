@@ -25,8 +25,14 @@ RSpec.describe ProductShipmentsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     product = Product.create!(name: 'cntlr product')
+    producer = Producer.create! name: 'p2'
+    production_run = ProductionRun.create!(
+                          lot_name: "production_runx",
+                          product_id: product.id,
+                          producer_id: producer.id
+    )
     customer = Customer.create!(name: 'customer')
-    { product_id: product.id,
+    { production_run_id: production_run.id,
       customer_id: customer.id }
   }
 

@@ -3,7 +3,7 @@ FactoryGirl.define do
     order_amount 1
     return_amount 1
     ship_date "2016-06-05"
-    product
+    production_run
     customer
   end
 end

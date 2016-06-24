@@ -5,6 +5,9 @@ class ProductionRun < ActiveRecord::Base
   validates :product, presence: true
 
   has_many :supply_consumptions, dependent: :destroy
+  # A production run has many shipments. If no production run 
+  # then no shipments.
+  has_many :product_shipments, dependent: :destroy
 
   before_save :set_default
   validates :lot_name, presence: true, uniqueness: true, length: { maximum: 50 }

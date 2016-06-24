@@ -1,7 +1,7 @@
 class ProductShipment < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :production_run
   belongs_to :customer
-  validates :product, presence: true
+  validates :production_run, presence: true
   validates :customer, presence: true
 
   before_save :set_defaults

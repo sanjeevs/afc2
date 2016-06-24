@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:order_amount) %></th>
       <th><%= model_class.human_attribute_name(:return_amount) %></th>
       <th><%= model_class.human_attribute_name(:ship_date) %></th>
-      <th><%= model_class.human_attribute_name(:product_id) %></th>
+      <th><%= model_class.human_attribute_name(:production_run_id) %></th>
       <th><%= model_class.human_attribute_name(:customer_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,7 +22,7 @@
         <td><%= product_shipment.order_amount %></td>
         <td><%= product_shipment.return_amount %></td>
         <td><%= product_shipment.ship_date %></td>
-        <td><%= product_shipment.product_id %></td>
+        <td><%= product_shipment.production_run_id %></td>
         <td><%= product_shipment.customer_id %></td>
         <td><%=l product_shipment.created_at %></td>
         <td>

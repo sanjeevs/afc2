@@ -5,7 +5,7 @@ RSpec.describe "product_shipments/new", type: :view do
     assign(:product_shipment, ProductShipment.new(
       :order_amount => 1,
       :return_amount => 1,
-      :product => nil,
+      :production_run => nil,
       :customer => nil
     ))
   end
@@ -20,7 +20,7 @@ RSpec.describe "product_shipments/new", type: :view do
       assert_select "input#product_shipment_return_amount[name=?]", "product_shipment[return_amount]"
 
 
-      assert_select "input#product_shipment_product_id[name=?]", "product_shipment[product_id]"
+      assert_select "input#product_shipment_production_run_id[name=?]", "product_shipment[production_run_id]"
 
       assert_select "input#product_shipment_customer_id[name=?]", "product_shipment[customer_id]"
     end
