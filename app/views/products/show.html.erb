@@ -3,20 +3,56 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @product.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:unique_name) %>:</strong></dt>
-  <dd><%= @product.unique_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:left_amount) %>:</strong></dt>
-  <dd><%= @product.left_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:adjust) %>:</strong></dt>
-  <dd><%= @product.adjust %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:unit) %>:</strong></dt>
-  <dd><%= @product.unit %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
-  <dd><%= @product.comment %></dd>
-</dl>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><%=@product.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Amount Left</strong></td>
+      <td><%= pluralize(@product.left_amount, @product.unit)%></td>
+    </tr>
+    <tr>
+      <td><strong>Adjust</strong></td>
+      <td><%= pluralize(@product.adjust, @product.unit)%></td>
+    </tr>
+    <tr>
+      <td><strong>Comment</strong></td>
+      <td><%=@product.comment%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<h2 class="display-1">Production Run</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Producer</th>
+      <th>Mfgd Date</th>
+      <th>Lot Name</th>
+      <th>Mfgd Amount</th>
+      <th>Expiry Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @product.production_runs.each do |prod_run| %>
+      <td> <%= prod_run.producer.name %> </td>
+      <td> <%= prod_run.mfgd_date.to_s(:long) %> </td>
+      <td> <%= prod_run.lot_name %> </td>
+      <td> <%= prod_run.mfgd_amount %> <%= @product.unit%> </td>
+      <td> <%= prod_run.expiry_date.to_s(:long) %> </td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn btn-default'  %>
