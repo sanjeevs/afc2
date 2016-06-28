@@ -17,10 +17,6 @@ RSpec.describe "production_runs/edit", type: :view do
 
       assert_select "input#production_run_lot_name[name=?]", "production_run[lot_name]"
 
-      assert_select "input#production_run_producer_id[name=?]", "production_run[producer_id]"
-
-      assert_select "input#production_run_product_id[name=?]", "production_run[product_id]"
-
       assert_select "input#production_run_mfgd_amount[name=?]", "production_run[mfgd_amount]"
     end
   end

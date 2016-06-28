@@ -3,20 +3,40 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:lot_name) %>:</strong></dt>
-  <dd><%= @production_run.lot_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:producer_id) %>:</strong></dt>
-  <dd><%= @production_run.producer_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:product_id) %>:</strong></dt>
-  <dd><%= @production_run.product_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mfgd_amount) %>:</strong></dt>
-  <dd><%= @production_run.mfgd_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mfgd_date) %>:</strong></dt>
-  <dd><%= @production_run.mfgd_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:expiry_date) %>:</strong></dt>
-  <dd><%= @production_run.expiry_date %></dd>
-</dl>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Lot Name</strong></td>
+      <td><%=@production_run.lot_name%></td>
+    </tr>
+    <tr>
+      <td><strong>Product</strong></td>
+      <td><%=@production_run.product.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Producer</strong></td>
+      <td><%=@production_run.producer.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Mfgd Amount</strong></td>
+      <td><%= pluralize @production_run.mfgd_amount, @production_run.product.unit%></td>
+    </tr>
+    <tr>
+      <td><strong>Mfgd Date</strong></td>
+      <td><%= @production_run.mfgd_date.to_s(:long) if @production_run.mfgd_date%></td>
+    </tr>
+    <tr>
+      <td><strong>Expiry Date</strong></td>
+      <td><%= @production_run.expiry_date.to_s(:long) if @production_run.expiry_date %></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               production_runs_path, :class => 'btn btn-default'  %>

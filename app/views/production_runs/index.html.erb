@@ -5,28 +5,24 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:lot_name) %></th>
       <th><%= model_class.human_attribute_name(:producer_id) %></th>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:mfgd_amount) %></th>
       <th><%= model_class.human_attribute_name(:mfgd_date) %></th>
       <th><%= model_class.human_attribute_name(:expiry_date) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @production_runs.each do |production_run| %>
       <tr>
-        <td><%= link_to production_run.id, production_run_path(production_run) %></td>
-        <td><%= production_run.lot_name %></td>
-        <td><%= production_run.producer_id %></td>
-        <td><%= production_run.product_id %></td>
-        <td><%= production_run.mfgd_amount %></td>
-        <td><%= production_run.mfgd_date %></td>
-        <td><%= production_run.expiry_date %></td>
-        <td><%=l production_run.created_at %></td>
+        <td><%= link_to production_run.lot_name, production_run_path(production_run) %></td>
+        <td><%= production_run.producer.name %></td>
+        <td><%= production_run.product.name %></td>
+        <td><%= pluralize production_run.mfgd_amount, production_run.product.unit%></td>
+        <td><%= production_run.mfgd_date.to_s(:long) if production_run.mfgd_date %></td>
+        <td><%= production_run.expiry_date.to_s(:long) if production_run.expiry_date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_production_run_path(production_run), :class => 'btn btn-default btn-xs' %>

@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:left_amount) %></th>
       <th><%= model_class.human_attribute_name(:adjust) %></th>
@@ -16,14 +15,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
-        <td><%= product.name %></td>
+        <td><%= link_to product.name, product_path(product) %></td>
         <td><%= pluralize(product.left_amount, product.unit)%></td>
         <td><%= pluralize(product.adjust, product.unit)%></td>
         <td><%= product.comment %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.detail")),
-                      product_path(product), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

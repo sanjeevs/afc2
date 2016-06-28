@@ -9,13 +9,15 @@ RSpec.describe "production_runs/index", type: :view do
         :lot_name => "Lot Name1",
         :producer => @producer,
         :product => @product,
-        :mfgd_amount => 1
+        :mfgd_amount => 1,
+        :mfgd_date => "34/343/34"
       ),
       ProductionRun.create!(
         :lot_name => "Lot Name2",
         :producer => @producer,
         :product => @product,
-        :mfgd_amount => 1
+        :mfgd_amount => 1,
+        :mfgd_date => "34/343/34"
       )
     ])
   end

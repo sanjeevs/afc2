@@ -23,18 +23,18 @@
     <%=f.error_span(:lot_name) %>
   </div>
   <div class="form-group">
-    <%= f.label :producer_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :producer_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:producer_id) %>
-  </div>
-  <div class="form-group">
     <%= f.label :product_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :product_id, :class => 'form-control' %>
+      <%= collection_select(:production_run, :product_id, Product.all, :id, :name) %>
     </div>
     <%=f.error_span(:product_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :producer_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= collection_select(:production_run, :producer_id, Producer.all, :id, :name) %>
+    </div>
+    <%=f.error_span(:producer_id) %>
   </div>
   <div class="form-group">
     <%= f.label :mfgd_amount, :class => 'control-label col-lg-2' %>
@@ -46,14 +46,14 @@
   <div class="form-group">
     <%= f.label :mfgd_date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :mfgd_date, :class => 'form-control' %>
+      <%= f.date_select :mfgd_date, start_year: 2015, :class => 'form-control' %>
     </div>
     <%=f.error_span(:mfgd_date) %>
   </div>
   <div class="form-group">
     <%= f.label :expiry_date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :expiry_date, :class => 'form-control' %>
+      <%= f.date_select :expiry_date, start_year: 2015, :class => 'form-control' %>
     </div>
     <%=f.error_span(:expiry_date) %>
   </div>
