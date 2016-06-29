@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <td><strong>Producer</strong></td>
-      <td><%=@production_run.producer.name%></td>
+      <td><%=link_to @production_run.producer.name, producers_path(@production_run.producer)%></td>
     </tr>
     <tr>
       <td><strong>Mfgd Amount</strong></td>
@@ -80,7 +80,7 @@
   </tbody>
 </table>
 
-<h3 class="display-1">Consumptions By This Run</h3>
+<h3 class="display-1">Supplies Used By This Run</h3>
 <table class="table table-striped">
   <thead>
     <tr>

@@ -2,21 +2,36 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @producer.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:unique_name) %>:</strong></dt>
-  <dd><%= @producer.unique_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_name) %>:</strong></dt>
-  <dd><%= @producer.contact_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
-  <dd><%= @producer.address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @producer.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @producer.phone %></dd>
-</dl>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><%=@producer.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Contact Name</strong></td>
+      <td><%=@producer.contact_name%></td>
+    </tr>
+    <tr>
+      <td><strong>Address</strong></td>
+      <td><%=@producer.address%></td>
+    </tr>
+    <tr>
+      <td><strong>Email</strong></td>
+      <td><%=@producer.email%></td>
+    </tr>
+    <tr>
+      <td><strong>Phone</strong></td>
+      <td><%=@producer.phone%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               producers_path, :class => 'btn btn-default'  %>
@@ -27,3 +42,37 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+<h3 class="display-1">Production Run By This Producer</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Lot Name</th>
+      <th>Product</th>
+      <th>Mfgd Amount</th>
+      <th>Mfgd Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @producer.production_runs.each do |prod_run| %>
+    <tr>
+      <td><%= prod_run.lot_name %></td>
+      <td><%= prod_run.product.name %></td>
+      <td><%= prod_run.mfgd_amount%></td>
+      <td><%= prod_run.mfgd_date.to_s(:long)%></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_production_run_path(prod_run), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      production_runs_path(prod_run),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+

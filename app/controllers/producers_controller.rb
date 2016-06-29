@@ -70,6 +70,6 @@ class ProducersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producer_params
-      params.require(:producer).permit(:name, :unique_name, :contact_name, :address, :email, :phone)
+      params.require(:producer).permit(:name, :contact_name, :address, :email, :phone)
     end
 end
