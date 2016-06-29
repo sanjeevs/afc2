@@ -19,8 +19,6 @@ RSpec.describe "customers/edit", type: :view do
 
       assert_select "input#customer_name[name=?]", "customer[name]"
 
-      assert_select "input#customer_unique_name[name=?]", "customer[unique_name]"
-
       assert_select "input#customer_contact_name[name=?]", "customer[contact_name]"
 
       assert_select "input#customer_address[name=?]", "customer[address]"

@@ -14,7 +14,6 @@ RSpec.describe "customers/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Name  1  2  3/)
-    expect(rendered).to match(/name123/)
     expect(rendered).to match(/Contact Name/)
     expect(rendered).to match(/Address/)
     expect(rendered).to match(/Email/)
