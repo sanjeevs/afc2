@@ -47,3 +47,64 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+<h3 class="display-1">Shipment From This Run</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Order Amount</th>
+      <th>Return Amount</th>
+      <th>Ship Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @production_run.product_shipments.each do |prod_shipment| %>
+    <tr>
+      <td><%= prod_shipment.customer.name %></td>
+      <td><%= prod_shipment.order_amount %></td>
+      <td><%= prod_shipment.return_amount%></td>
+      <td><%= prod_shipment.ship_date.to_s(:long)%></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_product_shipment_path(prod_shipment), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      product_shipments_path(prod_shipment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<h3 class="display-1">Consumptions By This Run</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Supply Name</th>
+      <th>Used Amount</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @production_run.supply_consumptions.each do |supply_consumption| %>
+    <tr>
+      <td><%= supply_consumption.supply.name %></td>
+      <td><%= supply_consumption.used_amount%></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_supply_consumption_path(supply_consumption), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      supply_consumption_path(supply_consumption),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+

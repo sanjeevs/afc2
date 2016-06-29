@@ -36,21 +36,21 @@
     <tr>
       <th>Lot Name</th>
       <th>Producer</th>
-      <th>Mfgd Date</th>
       <th>Mfgd Amount</th>
+      <th>Mfgd Date</th>
       <th>Expiry Date</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
     <% @product.production_runs.each do |prod_run| %>
+    <tr>
       <td> <%= link_to prod_run.lot_name, production_run_path(prod_run) %> </td>
       <td> <%= prod_run.producer.name %> </td>
-      <td> <%= prod_run.mfgd_date.to_s(:long) %> </td>
       <td> <%= prod_run.mfgd_amount %> <%= @product.unit%> </td>
+      <td> <%= prod_run.mfgd_date.to_s(:long) %> </td>
       <td> <%= prod_run.expiry_date.to_s(:long) %> </td>
-    <% end %>
     </tr>
+    <% end %>
   </tbody>
 </table>
 
