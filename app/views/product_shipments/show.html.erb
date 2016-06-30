@@ -2,19 +2,36 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:order_amount) %>:</strong></dt>
-  <dd><%= @product_shipment.order_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:return_amount) %>:</strong></dt>
-  <dd><%= @product_shipment.return_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ship_date) %>:</strong></dt>
-  <dd><%= @product_shipment.ship_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:production_run_id) %>:</strong></dt>
-  <dd><%= @product_shipment.production_run_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_id) %>:</strong></dt>
-  <dd><%= @product_shipment.customer_id %></dd>
-</dl>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Customer Name</strong></td>
+      <td><%=@product_shipment.customer.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Lot Name</strong></td>
+      <td><%=@product_shipment.production_run.lot_name%></td>
+    </tr>
+    <tr>
+      <td><strong>Order Amount</strong></td>
+      <td><%= pluralize @product_shipment.order_amount, @product_shipment.production_run.product.unit%></td>
+    </tr>
+    <tr>
+      <td><strong>Return Amount</strong></td>
+      <td><%= pluralize @product_shipment.return_amount, @product_shipment.production_run.product.unit%></td>
+    </tr>
+    <tr>
+      <td><strong>Ship Date</strong></td>
+      <td><%= @product_shipment.ship_date.to_s(:long) if @product_shipment.ship_date%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               product_shipments_path, :class => 'btn btn-default'  %>

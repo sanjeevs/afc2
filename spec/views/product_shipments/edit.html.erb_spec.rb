@@ -25,10 +25,6 @@ RSpec.describe "product_shipments/edit", type: :view do
 
       assert_select "input#product_shipment_return_amount[name=?]", "product_shipment[return_amount]"
 
-
-      assert_select "input#product_shipment_production_run_id[name=?]", "product_shipment[production_run_id]"
-
-      assert_select "input#product_shipment_customer_id[name=?]", "product_shipment[customer_id]"
     end
   end
 end
