@@ -5,28 +5,22 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:unique_name) %></th>
       <th><%= model_class.human_attribute_name(:left_amount) %></th>
       <th><%= model_class.human_attribute_name(:adjust) %></th>
       <th><%= model_class.human_attribute_name(:unit) %></th>
       <th><%= model_class.human_attribute_name(:comment) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @supplies.each do |supply| %>
       <tr>
-        <td><%= link_to supply.id, supply_path(supply) %></td>
-        <td><%= supply.name %></td>
-        <td><%= supply.unique_name %></td>
+        <td><%= link_to supply.name, supply_path(supply) %></td>
         <td><%= supply.left_amount %></td>
         <td><%= supply.adjust %></td>
         <td><%= supply.unit %></td>
         <td><%= supply.comment %></td>
-        <td><%=l supply.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_supply_path(supply), :class => 'btn btn-default btn-xs' %>

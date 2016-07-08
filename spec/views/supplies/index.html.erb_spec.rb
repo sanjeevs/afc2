@@ -23,9 +23,7 @@ RSpec.describe "supplies/index", type: :view do
   it "renders a list of supplies" do
     render
     assert_select "tr>td", :text => "Name1".to_s, :count => 1
-    assert_select "tr>td", :text => "name1".to_s, :count => 1
     assert_select "tr>td", :text => "Name2".to_s, :count => 1
-    assert_select "tr>td", :text => "name2".to_s, :count => 1
     assert_select "tr>td", :text => 1999.to_s, :count => 2
     assert_select "tr>td", :text => 2999.to_s, :count => 2
     assert_select "tr>td", :text => "Unit".to_s, :count => 2
