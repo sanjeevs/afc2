@@ -18,8 +18,6 @@ RSpec.describe "supplies/edit", type: :view do
 
       assert_select "input#supply_name[name=?]", "supply[name]"
 
-      assert_select "input#supply_unique_name[name=?]", "supply[unique_name]"
-
       assert_select "input#supply_left_amount[name=?]", "supply[left_amount]"
 
       assert_select "input#supply_adjust[name=?]", "supply[adjust]"

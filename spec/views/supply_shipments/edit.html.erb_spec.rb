@@ -16,9 +16,6 @@ RSpec.describe "supply_shipments/edit", type: :view do
 
       assert_select "input#supply_shipment_order_amount[name=?]", "supply_shipment[order_amount]"
 
-      assert_select "input#supply_shipment_supply_id[name=?]", "supply_shipment[supply_id]"
-
-      assert_select "input#supply_shipment_supplier_id[name=?]", "supply_shipment[supplier_id]"
     end
   end
 end

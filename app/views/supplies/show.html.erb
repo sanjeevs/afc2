@@ -29,6 +29,8 @@
 </div>
 </div>
 
+
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               supplies_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -36,5 +38,25 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               supply_path(@supply),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', 
+                         :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<h2 class="display-1">Consumptions Of <%=@supply.name%></h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Lot Name</th>
+      <th>Producer</th>
+      <th>Used Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @supply.supply_consumptions.each do |supply_consumption| %>
+    <tr>
+      <td> <%= supply_consumption.production_run.lot_name%> </td>
+      <td> <%= supply_consumption.production_run.producer.name %> </td>
+      <td> <%= supply_consumption.used_amount %> <%=@supply.unit%> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

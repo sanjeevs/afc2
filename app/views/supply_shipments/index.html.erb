@@ -1,28 +1,26 @@
 <%- model_class = SupplyShipment -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => "All Supplies Received" %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= Supply %></th>
+      <th><%= Supplier %></th>
       <th><%= model_class.human_attribute_name(:order_amount) %></th>
       <th><%= model_class.human_attribute_name(:ship_date) %></th>
-      <th><%= model_class.human_attribute_name(:supply_id) %></th>
-      <th><%= model_class.human_attribute_name(:supplier_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @supply_shipments.each do |supply_shipment| %>
+    <% @supply_shipments.each_with_index do |supply_shipment, i| %>
       <tr>
-        <td><%= link_to supply_shipment.id, supply_shipment_path(supply_shipment) %></td>
-        <td><%= supply_shipment.order_amount %></td>
-        <td><%= supply_shipment.ship_date %></td>
-        <td><%= supply_shipment.supply_id %></td>
-        <td><%= supply_shipment.supplier_id %></td>
-        <td><%=l supply_shipment.created_at %></td>
+        <td><%= link_to i+1, supply_shipment_path(supply_shipment) %></td>
+        <td><%= supply_shipment.supply.name %></td>
+        <td><%= supply_shipment.supplier.name %></td>
+        <td><%= supply_shipment.order_amount%> <%=supply_shipment.supply.unit%></td>
+        <td><%= supply_shipment.ship_date.to_s(:long) if supply_shipment.ship_date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_supply_shipment_path(supply_shipment), :class => 'btn btn-default btn-xs' %>

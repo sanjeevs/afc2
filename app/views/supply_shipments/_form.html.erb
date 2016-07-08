@@ -25,21 +25,23 @@
   <div class="form-group">
     <%= f.label :ship_date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :ship_date, :class => 'form-control' %>
+      <%= f.date_select :ship_date, start_year: 2015,  :class => 'form-control' %>
     </div>
     <%=f.error_span(:ship_date) %>
   </div>
   <div class="form-group">
     <%= f.label :supply_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :supply_id, :class => 'form-control' %>
+      <%= collection_select(:supply, :supply_id, Supply.all, :id, :name,
+                            {:selected => @supply_shipment.supply.id}) %>
     </div>
     <%=f.error_span(:supply_id) %>
   </div>
   <div class="form-group">
     <%= f.label :supplier_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :supplier_id, :class => 'form-control' %>
+      <%= collection_select(:supplier, :supplier_id, Supplier.all, :id, :name,
+                            {:selected => @supply_shipment.supplier_id}) %>
     </div>
     <%=f.error_span(:supplier_id) %>
   </div>

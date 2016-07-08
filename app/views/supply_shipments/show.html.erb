@@ -1,18 +1,34 @@
-<%- model_class = SupplyShipment -%>
+<%- model_class = SupplyShipment-%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => "Supply Received" %></h1>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Supply</strong></td>
+      <td><%=@supply_shipment.supply.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Supplier Name</strong></td>
+      <td><%=@supply_shipment.supplier.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Received Amount</strong></td>
+      <td><%= pluralize @supply_shipment.order_amount, @supply_shipment.supply.unit%></td>
+    </tr>
+    <tr>
+      <td><strong>Received Date</strong></td>
+      <td><%= @supply_shipment.ship_date.to_s(:long) if @supply_shipment.ship_date%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:order_amount) %>:</strong></dt>
-  <dd><%= @supply_shipment.order_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ship_date) %>:</strong></dt>
-  <dd><%= @supply_shipment.ship_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:supply_id) %>:</strong></dt>
-  <dd><%= @supply_shipment.supply_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:supplier_id) %>:</strong></dt>
-  <dd><%= @supply_shipment.supplier_id %></dd>
-</dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               supply_shipments_path, :class => 'btn btn-default'  %>

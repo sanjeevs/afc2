@@ -41,6 +41,8 @@ class SupplyShipmentsController < ApplicationController
   # PATCH/PUT /supply_shipments/1
   # PATCH/PUT /supply_shipments/1.json
   def update
+    params["supply_shipment"]["supply_id"] = params["supply"]["supply_id"] if params["supply"]
+    params["supply_shipment"]["supplier_id"] = params["supplier"]["supplier_id"] if params["supplier"]
     respond_to do |format|
       if @supply_shipment.update(supply_shipment_params)
         format.html { redirect_to @supply_shipment, notice: 'Supply shipment was successfully updated.' }
@@ -70,6 +72,7 @@ class SupplyShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_shipment_params
-      params.require(:supply_shipment).permit(:order_amount, :return_amount, :ship_date, :supply_id, :supplier_id)
+      params.require(:supply_shipment).permit(:order_amount, :ship_date,
+      :supplier_id, :supply_id);
     end
 end
