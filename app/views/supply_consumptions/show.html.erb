@@ -2,15 +2,28 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:supply_id) %>:</strong></dt>
-  <dd><%= @supply_consumption.supply_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:used_amount) %>:</strong></dt>
-  <dd><%= @supply_consumption.used_amount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:production_run) %>:</strong></dt>
-  <dd><%= @supply_consumption.production_run %></dd>
-</dl>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><%=@supply_consumption.supply.name%></td>
+    </tr>
+    <tr>
+      <td><strong>Used Amount</strong></td>
+      <td><%= pluralize(@supply_consumption.used_amount, @supply_consumption.supply.unit)%></td>
+    </tr>
+    <tr>
+      <td><strong>Lot Name</strong></td>
+      <td><%=@supply_consumption.production_run.lot_name%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               supply_consumptions_path, :class => 'btn btn-default'  %>

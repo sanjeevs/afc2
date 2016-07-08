@@ -18,7 +18,8 @@
   <div class="form-group">
     <%= f.label :supply_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :supply_id, :class => 'form-control' %>
+      <%= collection_select(:supply, :supply_id, Supply.all, :id, :name,
+                            {:selected => @supply_consumption.supply_id})%>
     </div>
     <%=f.error_span(:supply_id) %>
   </div>
@@ -32,9 +33,10 @@
   <div class="form-group">
     <%= f.label :production_run, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :production_run, :class => 'form-control' %>
+      <%= collection_select(:production_run, :production_run_id, ProductionRun.all, :id, :lot_name,
+                            {:selected => @supply_consumption.production_run_id})%>
     </div>
-    <%=f.error_span(:production_run) %>
+    <%=f.error_span(:production_run_id) %>
   </div>
 
   <div class="form-group">
