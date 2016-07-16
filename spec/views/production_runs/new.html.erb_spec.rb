@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "production_runs/new", type: :view do
   before(:each) do
-    assign(:production_run, ProductionRun.new(
-      :lot_name => "MyString",
-      :producer => Producer.create!(name: 'producer'),
-      :product => Product.create!(name: 'Product'),
-      :mfgd_amount => 1
-    ))
+    assign(:production_run, ProductionRun.new)
   end
 
   it "renders new production_run form" do
