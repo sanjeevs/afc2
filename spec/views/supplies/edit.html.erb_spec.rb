@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "supplies/edit", type: :view do
   before(:each) do
-    @supply = assign(:supply, Supply.create!(
-      :name => "name",
-      :left_amount => 1,
-      :adjust => 1,
-      :unit => "MyString",
-      :comment => "MyText"
-    ))
+    @supply = FactoryGirl.create(:supply)
   end
 
   it "renders the edit supply form" do

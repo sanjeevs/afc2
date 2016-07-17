@@ -2,19 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "supplies/show", type: :view do
   before(:each) do
-    @supply = assign(:supply, Supply.create!(
-      :name => "Name",
-      :left_amount => 1,
-      :adjust => 2,
-      :unit => "Unit",
-      :comment => "MyText"
-    ))
+    @supply = FactoryGirl.create(:supply_consumption).supply
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Name/)
-    expect(rendered).to match(/Unit/)
-    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(@supply.name)
+    expect(rendered).to match(@supply.comment)
+    expect(rendered).to match(@supply.supply_consumptions.first.production_run.lot_name)
+    expect(rendered).to match(@supply.supply_consumptions.first.production_run.producer.name)
   end
 end

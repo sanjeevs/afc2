@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "supply_shipments/new", type: :view do
   before(:each) do
-    assign(:supply_shipment, SupplyShipment.new(
-      :order_amount => 1,
-      :supply => Supply.create!(name: 'supply'),
-      :supplier => Supplier.create!(name: 'supplier')
-    ))
+    assign(:supply_shipment, SupplyShipment.new)
   end
 
   it "renders new supply_shipment form" do

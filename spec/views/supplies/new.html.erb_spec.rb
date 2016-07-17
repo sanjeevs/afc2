@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "supplies/new", type: :view do
   before(:each) do
-    assign(:supply, Supply.new(
-      :name => "MyString",
-      :left_amount => 1,
-      :adjust => 1,
-      :unit => "MyString",
-      :comment => "MyText"
-    ))
+    assign(:supply, Supply.new)
   end
 
   it "renders new supply form" do

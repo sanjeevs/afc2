@@ -2,21 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "supply_shipments/index", type: :view do
   before(:each) do
-    assign(:supply_shipments, [
-      SupplyShipment.create!(
-        :order_amount => 1,
-        :supply => Supply.create!(name: 'supply'),
-        :supplier => Supplier.create!(name: 'supplier')
-      ),
-      SupplyShipment.create!(
-        :order_amount => 1,
-        :supply => Supply.create!(name: 'supply2'),
-        :supplier => Supplier.create!(name: 'supplier2')
-      )
-    ])
+    @supply_shipments = Array.new(10) { FactoryGirl.create(:supply_shipment) }
   end
 
   it "renders a list of supply_shipments" do
     render
+    @supply_shipments.each do |entry|
+      assert_select "a[href=?]", supply_shipment_path(entry)
+    end
   end
 end
