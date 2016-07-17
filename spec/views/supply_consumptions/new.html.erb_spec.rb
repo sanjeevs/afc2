@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "supply_consumptions/new", type: :view do
   before(:each) do
-    assign(:supply_consumption, SupplyConsumption.new(
-      :supply => Supply.create!(name: 'supply'),
-      :used_amount => 1,
-      :production_run => ProductionRun.create!(lot_name: 'prod1',
-        producer: Producer.create!(name: 'producer'),
-        product: Product.create!(name: 'product')) 
-    ))
+    assign(:supply_consumption, SupplyConsumption.new)
   end
 
   it "renders new supply_consumption form" do

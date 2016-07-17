@@ -18,8 +18,8 @@
   <div class="form-group">
     <%= f.label :supply_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:supply, :supply_id, Supply.all, :id, :name,
-                            {:selected => @supply_consumption.supply_id})%>
+      <%= collection_select(:supply_consumption, :supply_id, Supply.all, :id, :name,
+                            {:prompt => "Please select a supply. "})%>
     </div>
     <%=f.error_span(:supply_id) %>
   </div>
@@ -33,8 +33,8 @@
   <div class="form-group">
     <%= f.label :production_run, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:production_run, :production_run_id, ProductionRun.all, :id, :lot_name,
-                            {:selected => @supply_consumption.production_run_id})%>
+      <%= collection_select(:supply_consumption, :production_run_id, ProductionRun.all, :id, :lot_name,
+                            {:prompt => "Please select a lot name."})%>
     </div>
     <%=f.error_span(:production_run_id) %>
   </div>
