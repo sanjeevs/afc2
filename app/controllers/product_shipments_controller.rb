@@ -26,7 +26,6 @@ class ProductShipmentsController < ApplicationController
   # POST /product_shipments.json
   def create
     @product_shipment = ProductShipment.new(product_shipment_params)
-
     respond_to do |format|
       if @product_shipment.save
         format.html { redirect_to @product_shipment, notice: 'Product shipment was successfully created.' }

@@ -18,7 +18,8 @@
   <div class="form-group">
     <%= f.label :customer_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:customer, :customer_id, Customer.all.order(:name), :id, :name) %>
+      <%= collection_select(:product_shipment, :customer_id, Customer.all.order(:name), :id, :name,
+        {prompt: "Please select a customer"}) %>
     </div>
     <%=f.error_span(:customer_id) %>
   </div>
@@ -26,7 +27,7 @@
   <div class="form-group">
     <%= f.label :production_run_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:production_run, :production_run_id, ProductionRun.all.order(:lot_name), :id, :lot_name) %>
+      <%= collection_select(:product_shipment, :production_run_id, ProductionRun.all.order(:lot_name), :id, :lot_name, {prompt: "Please select a production run"}) %>
     </div>
     <%=f.error_span(:production_run_id) %>
   </div>

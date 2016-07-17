@@ -2,18 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "products/show", type: :view do
   before(:each) do
-    @product = assign(:product, Product.create!(
-      :name => "Name 1 2 3",
-      :left_amount => 1,
-      :adjust => 2,
-      :unit => "Unit",
-      :comment => "MyText"
-    ))
+    @product = FactoryGirl.create(:product)
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Name 1 2 3/)
-    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(@product.name)
+    expect(rendered).to match(@product.left_amount.to_s)
   end
 end

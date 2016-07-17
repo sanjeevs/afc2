@@ -25,14 +25,16 @@
   <div class="form-group">
     <%= f.label :product_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:production_run, :product_id, Product.all, :id, :name) %>
+      <%= collection_select(:production_run, :product_id, Product.all, :id, :name,
+          {:prompt => 'Please select the product name'}) %>
     </div>
     <%=f.error_span(:product_id) %>
   </div>
   <div class="form-group">
     <%= f.label :producer_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:production_run, :producer_id, Producer.all, :id, :name) %>
+      <%= collection_select(:production_run, :producer_id, Producer.all, :id, :name,
+        {prompt: "Please select the production run" }) %>
     </div>
     <%=f.error_span(:producer_id) %>
   </div>

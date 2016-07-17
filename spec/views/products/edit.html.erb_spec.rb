@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "products/edit", type: :view do
   before(:each) do
-    @product = assign(:product, Product.create!(
-      :name => "MyString",
-      :left_amount => 1,
-      :adjust => 1,
-      :unit => "MyString",
-      :comment => "MyText"
-    ))
+    @product = FactoryGirl.create(:product)
   end
 
   it "renders the edit product form" do
