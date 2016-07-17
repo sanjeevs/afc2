@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "producers/edit", type: :view do
   before(:each) do
-    @producer = assign(:producer, Producer.create!(
-      :name => "MyString",
-      :contact_name => "MyString",
-      :address => "MyString",
-      :email => "MyString",
-      :phone => "MyString"
-    ))
+    @producer = FactoryGirl.create(:producer)
   end
 
   it "renders the edit producer form" do

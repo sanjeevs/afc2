@@ -2,21 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "producers/show", type: :view do
   before(:each) do
-    @producer = assign(:producer, Producer.create!(
-      :name => "Name",
-      :contact_name => "Contact Name",
-      :address => "Address",
-      :email => "Email",
-      :phone => "Phone"
-    ))
+    @producer = FactoryGirl.create(:producer)
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Name/)
-    expect(rendered).to match(/Contact Name/)
-    expect(rendered).to match(/Address/)
-    expect(rendered).to match(/Email/)
-    expect(rendered).to match(/Phone/)
+    expect(rendered).to match(@producer.name)
+    expect(rendered).to match(@producer.contact_name)
+    expect(rendered).to match(@producer.address)
+    expect(rendered).to match(@producer.email)
+    expect(rendered).to match(@producer.phone)
   end
 end

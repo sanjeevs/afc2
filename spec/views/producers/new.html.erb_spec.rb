@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "producers/new", type: :view do
   before(:each) do
-    assign(:producer, Producer.new(
-      :name => "MyString",
-      :contact_name => "MyString",
-      :address => "MyString",
-      :email => "MyString",
-      :phone => "MyString"
-    ))
+    assign(:producer, Producer.new)
   end
 
   it "renders new producer form" do
