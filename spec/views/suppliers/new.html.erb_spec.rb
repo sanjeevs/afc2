@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "suppliers/new", type: :view do
   before(:each) do
-    assign(:supplier, Supplier.new(
-      :name => "MyString",
-      :contact_name => "MyString",
-      :address => "MyString",
-      :email => "MyString",
-      :phone => "MyString"
-    ))
+    assign(:supplier, Supplier.new)
   end
 
   it "renders new supplier form" do
