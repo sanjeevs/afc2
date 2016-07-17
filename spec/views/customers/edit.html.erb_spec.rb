@@ -2,14 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "customers/edit", type: :view do
   before(:each) do
-    @customer = assign(:customer, Customer.create!(
-      :name => "MyString",
-      :unique_name => "MyString",
-      :contact_name => "MyString",
-      :address => "MyString",
-      :email => "MyString",
-      :phone => "MyString"
-    ))
+    @customer = FactoryGirl.create(:customer)
   end
 
   it "renders the edit customer form" do
