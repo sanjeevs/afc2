@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  before { @product = FactoryGirl.create(:product) }
+  before { @product = FactoryGirl.create(:product, :complex) }
   subject { @product }
   
   it { should be_valid }
@@ -80,5 +80,47 @@ RSpec.describe Product, type: :model do
   describe 'when left_amount is negative integer' do
     before { @product.left_amount = -1 }
     it { should_not be_valid }
+  end
+
+  describe "total produced amount" do
+    before do
+      @total_mfgd_amount = 0
+      @product.production_runs.each do |pr|
+        @total_mfgd_amount += pr.mfgd_amount
+      end
+    end
+    it "should sum all the mfgd amounts" do
+      expect(@product.total_produced).to eql(@total_mfgd_amount)
+    end
+  end
+
+  describe "total shipments" do
+    before do
+      @total_shipment_amount = 0
+      @product.production_runs.each do |production_run|
+        production_run.product_shipments.each do |product_shipment|
+          @total_shipment_amount += product_shipment.order_amount
+        end
+      end
+    end
+    it "should sum all the shipment amount" do
+      expect(@total_shipment_amount).not_to eql(0)
+      expect(@product.total_shipments).to eql(@total_shipment_amount)
+    end
+  end
+
+  describe "total returns" do
+    before do
+      @total_return_amount = 0
+      @product.production_runs.each do |production_run|
+        production_run.product_shipments.each do |product_shipment|
+          @total_return_amount += product_shipment.return_amount
+        end
+      end
+    end
+    it "should sum all the shipment amount" do
+      expect(@total_return_amount).not_to eql(0)
+      expect(@product.total_returns).to eql(@total_return_amount)
+    end
   end
 end

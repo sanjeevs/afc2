@@ -21,7 +21,7 @@ class Supply < ActiveRecord::Base
     supply_consumptions.sum(:used_amount)
   end
 
-  def total_shipments
+  def total_orders
     supply_shipments.sum(:order_amount)
   end
 

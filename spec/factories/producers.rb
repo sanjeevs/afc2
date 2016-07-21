@@ -6,4 +6,5 @@ FactoryGirl.define do
     email "MyString"
     phone "MyString"
   end
+
 end
