@@ -1,0 +1,12 @@
+require 'csv'
+
+csv = ARGV[0]
+
+def customers(filename)
+  puts "Customer.delete_all"
+  CSV.foreach(filename, col_sep: ',') do |row|
+  puts "Customer.create!(name: \"#{row[0]}\", address: \"#{row[2]} #{row[3]}\", email: \"#{row[4]}\")"
+  end
+end
+
+customers(csv)
