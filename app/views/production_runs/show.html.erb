@@ -63,8 +63,8 @@
     <% @production_run.product_shipments.each do |prod_shipment| %>
     <tr>
       <td><%= prod_shipment.customer.name %></td>
-      <td><%= prod_shipment.order_amount %></td>
-      <td><%= prod_shipment.return_amount%></td>
+      <td><%= pluralize prod_shipment.order_amount, prod_shipment.production_run.product.unit %></td>
+      <td><%= pluralize prod_shipment.return_amount, prod_shipment.production_run.product.unit %></td>
       <td><%= prod_shipment.ship_date.to_s(:long)%></td>
       <td>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -93,7 +93,7 @@
     <% @production_run.supply_consumptions.each do |supply_consumption| %>
     <tr>
       <td><%= supply_consumption.supply.name %></td>
-      <td><%= supply_consumption.used_amount%></td>
+      <td><%= pluralize supply_consumption.used_amount, supply_consumption.supply.unit%></td>
       <td>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_supply_consumption_path(supply_consumption), :class => 'btn btn-default btn-xs' %>

@@ -1,5 +1,10 @@
 == README
 
+The purpose of the sw is to 
+ 1. Compute the number of product bottles that are remaining.
+ 2. Track product to customer order.
+ 3. Track the amount of supplies that are left.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

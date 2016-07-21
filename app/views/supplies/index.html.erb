@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:left_amount) %></th>
+      <th>Received Amount</th>
+      <th>Left Amount</th>
       <th><%= model_class.human_attribute_name(:adjust) %></th>
       <th><%= model_class.human_attribute_name(:comment) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,8 +17,9 @@
     <% @supplies.each do |supply| %>
       <tr>
         <td><%= link_to supply.name, supply_path(supply) %></td>
-        <td><%= supply.left_amount %> <%= pluralize(supply.left_amount, supply.unit)%></td>
-        <td><%= supply.adjust %> <%= pluralize(supply.adjust, supply.unit)%></td>
+        <td><%= pluralize supply.total_orders, supply.unit %></td>
+        <td><%= pluralize supply.left_amount, supply.unit %></td>
+        <td><%= pluralize supply.adjust, supply.unit %></td>
         <td><%= supply.comment %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
