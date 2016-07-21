@@ -37,26 +37,7 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  describe "default value of left_amount" do
-    before do
-      @product.left_amount = ""
-      @product.save
-    end
-    it " is zero" do
-      expect(@product.left_amount).to be_zero 
-    end
-  end
 
-  describe "blank value of left_amount" do
-    before do
-      @product.left_amount = " " * 20
-      @product.save
-    end
-    it " is zero" do
-      expect(@product.left_amount).to be_zero 
-    end
-  end
-  
   describe "blank value of adjust" do
     before do
       @product.adjust = " " * 20
@@ -69,16 +50,6 @@ RSpec.describe Product, type: :model do
   
   describe 'when adjust is not integer' do
     before { @product.adjust = 'a' }
-    it { should_not be_valid }
-  end
-
-  describe 'when left_amount is not integer' do
-    before { @product.left_amount = 'a' }
-    it { should_not be_valid }
-  end
-  
-  describe 'when left_amount is negative integer' do
-    before { @product.left_amount = -1 }
     it { should_not be_valid }
   end
 

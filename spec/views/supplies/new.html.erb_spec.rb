@@ -12,8 +12,6 @@ RSpec.describe "supplies/new", type: :view do
 
       assert_select "input#supply_name[name=?]", "supply[name]"
 
-      assert_select "input#supply_left_amount[name=?]", "supply[left_amount]"
-
       assert_select "input#supply_adjust[name=?]", "supply[adjust]"
 
       assert_select "input#supply_unit[name=?]", "supply[unit]"

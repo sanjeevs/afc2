@@ -7,7 +7,6 @@ class Supply < ActiveRecord::Base
 
   validates :unique_name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :adjust, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
-  validates :left_amount, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
 
   # A supply has many consumption in a production run. If there is no
   # supply then there is no consumption.
@@ -25,9 +24,12 @@ class Supply < ActiveRecord::Base
     supply_shipments.sum(:order_amount)
   end
 
+  def left_amount
+    total_orders - total_consumptions - adjust
+  end
+
   private
     def default_values
-      self.left_amount ||= 0
       self.adjust ||= 0
     end
 

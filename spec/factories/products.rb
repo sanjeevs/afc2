@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :product do
     sequence(:name) { |n| "Factory Product #{n}" }
-    left_amount { rand(1..10) }
     unit "Bottles"
     comment "MyText"
 

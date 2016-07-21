@@ -7,18 +7,22 @@
     <tr>
       <th>Product</th>
       <th>Amount Left</th>
+      <th>Amount Produced</th>
       <th>Amount Shipped</th>
       <th>Amount Return</th>
+      <th>Amount Adjust</th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
     <tr>
-      <td><%=product.name%></td>
-      <td><%=product.left_amount%> <%= product.unit%></td>
-      <td><%=product.total_shipments%> <%= product.unit%></td>
-      <td><%=product.total_returns%> <%= product.unit%></td>
+      <td><%=link_to product.name, product_path(product)%></td>
+      <td><%= pluralize product.left_amount, product.unit%></td>
+      <td><%= pluralize product.total_produced, product.unit%></td>
+      <td><%= pluralize product.total_shipments, product.unit%></td>
+      <td><%= pluralize product.total_returns, product.unit%></td>
+      <td><%= pluralize product.adjust, product.unit%></td>
     </tr>
     <% end %>
   </tbody>
@@ -36,16 +40,18 @@
       <th>Amount Left</th>
       <th>Amount Rcvd</th>
       <th>Amount Consumed</th>
+      <th>Amount Adjust</th>
     </tr>
   </thead>
 
   <tbody>
     <% @supplies.each do |supply| %>
     <tr>
-      <td><%=supply.name%></td>
-      <td><%=supply.left_amount%> <%= supply.unit %></td>
-      <td>51 kg</td>
-      <td><%= supply.total_consumptions%> <%= supply.unit%></td>
+      <td><%=link_to supply.name, supply_path(supply)%></td>
+      <td><%= pluralize supply.left_amount, supply.unit %></td>
+      <td><%= pluralize supply.total_orders,  supply.unit %></td>
+      <td><%=  pluralize supply.total_consumptions, supply.unit%></td>
+      <td><%=  pluralize supply.adjust, supply.unit%></td>
     </tr>
     <% end %>
   </tbody>

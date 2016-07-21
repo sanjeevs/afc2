@@ -12,7 +12,6 @@ class Product < ActiveRecord::Base
 
   validates :unique_name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :adjust, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
-  validates :left_amount, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
 
   # A product has many supplies shipment. If no product then supplies 
   # continue to remain.
@@ -41,9 +40,12 @@ class Product < ActiveRecord::Base
     production_runs.sum(:mfgd_amount)
   end
 
+  def left_amount
+    total_produced - total_shipments + total_returns - adjust
+  end
+
   private
     def default_values
-      self.left_amount ||= 0
       self.adjust ||= 0
       self.unit ||= "bottles"
     end

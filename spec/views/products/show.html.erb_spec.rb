@@ -8,6 +8,5 @@ RSpec.describe "products/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(@product.name)
-    expect(rendered).to match(@product.left_amount.to_s)
   end
 end

@@ -13,8 +13,6 @@ RSpec.describe "products/edit", type: :view do
       assert_select "input#product_name[name=?]", "product[name]"
 
 
-      assert_select "input#product_left_amount[name=?]", "product[left_amount]"
-
       assert_select "input#product_adjust[name=?]", "product[adjust]"
 
       assert_select "input#product_unit[name=?]", "product[unit]"
