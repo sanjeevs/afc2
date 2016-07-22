@@ -12,7 +12,6 @@ class Product < ActiveRecord::Base
   end
 
   validates :unique_name, presence: true, uniqueness: true, length: { maximum: 50 }
-  validates :adjust, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
 
   # A product has many supplies shipment. If no product then supplies 
   # continue to remain.
@@ -44,12 +43,21 @@ class Product < ActiveRecord::Base
   def left_amount
     left = total_produced - total_shipments + total_returns
     if left < 0
-      @adjust = left
+      @adjust = -1 * left
       left = 0
+    else 
+      @adjust = 0
     end
     return left
   end
 
+  def adjust_to_comment
+    if adjust == 0
+      return ""
+    else
+      return "Missing #{adjust} bottles."
+    end
+  end
   private
     def default_values
       self.unit ||= "bottles"

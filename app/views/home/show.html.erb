@@ -10,7 +10,7 @@
       <th>Amount Produced</th>
       <th>Amount Shipped</th>
       <th>Amount Return</th>
-      <th>Amount Adjust</th>
+      <th>Comments</th>
     </tr>
   </thead>
 
@@ -22,7 +22,7 @@
       <td><%= pluralize product.total_produced, product.unit%></td>
       <td><%= pluralize product.total_shipments, product.unit%></td>
       <td><%= pluralize product.total_returns, product.unit%></td>
-      <td><%= pluralize product.adjust, product.unit%></td>
+      <td><%= product.adjust_to_comment%></td>
     </tr>
     <% end %>
   </tbody>
