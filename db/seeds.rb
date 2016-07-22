@@ -20,7 +20,7 @@ Supplier.create! name: 'Fyve Elements LLC', contact_name: 'Suresh Balakrishnan',
                  phone: '301-725-6699', email: 'suresh@fyvelements.com'
 Supplier.create! name: 'House Of Spices Inc', contact_name: 'Mukesh Patel', address: '4140 Blue Ridge Industrial Pkwy, Norcross, GA 30071',
                  phone: '770-263-0202', email: 'mpatel@houseofspicesindia.com'
-Supplier.create! name: "Richard Packaging", address: "4721 Burbank Rd. Ste. 1 Memphis, TN 38118", email: "ABattaly@richardspackaging.com"
+Supplier.create! name: "Richard Packaging", contact_name: 'Alexia Battaly", address: "4721 Burbank Rd. Ste. 1 Memphis, TN 38118", email: "ABattaly@richardspackaging.com"
 
 
 Product.delete_all

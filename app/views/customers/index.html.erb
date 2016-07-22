@@ -21,7 +21,6 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= link_to customer.name, customer_path(customer) %></td>
-        <td><%= customer.unique_name %></td>
         <td><%= customer.contact_name %></td>
         <td><%= customer.address %></td>
         <td><%= customer.email %></td>
