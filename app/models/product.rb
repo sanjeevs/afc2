@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 
   before_save :default_values
+  attr_accessor :adjust
 
   before_validation do |product| 
     if name
@@ -41,12 +42,16 @@ class Product < ActiveRecord::Base
   end
 
   def left_amount
-    total_produced - total_shipments + total_returns - adjust
+    left = total_produced - total_shipments + total_returns
+    if left < 0
+      @adjust = left
+      left = 0
+    end
+    return left
   end
 
   private
     def default_values
-      self.adjust ||= 0
       self.unit ||= "bottles"
     end
 end

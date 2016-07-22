@@ -38,21 +38,6 @@ RSpec.describe Product, type: :model do
   end
 
 
-  describe "blank value of adjust" do
-    before do
-      @product.adjust = " " * 20
-      @product.save
-    end
-    it " is zero" do
-      expect(@product.adjust).to be_zero 
-    end
-  end
-  
-  describe 'when adjust is not integer' do
-    before { @product.adjust = 'a' }
-    it { should_not be_valid }
-  end
-
   describe "total produced amount" do
     before do
       @total_mfgd_amount = 0

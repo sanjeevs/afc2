@@ -12,8 +12,6 @@ RSpec.describe "products/new", type: :view do
 
       assert_select "input#product_name[name=?]", "product[name]"
 
-      assert_select "input#product_adjust[name=?]", "product[adjust]"
-
       assert_select "input#product_unit[name=?]", "product[unit]"
 
       assert_select "input#product_comment[name=?]", "product[comment]"
