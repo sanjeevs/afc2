@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721004000) do
+ActiveRecord::Schema.define(version: 20160721231139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,11 @@ ActiveRecord::Schema.define(version: 20160721004000) do
     t.integer  "adjust"
     t.string   "unit"
     t.text     "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "image_path"
+    t.float    "net_weight_oz"
+    t.float    "fluid_oz"
   end
 
   add_index "products", ["unique_name"], name: "index_products_on_unique_name", using: :btree

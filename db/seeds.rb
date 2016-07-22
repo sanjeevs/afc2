@@ -23,6 +23,13 @@ Supplier.create! name: 'House Of Spices Inc', contact_name: 'Mukesh Patel', addr
 Supplier.create! name: "Richard Packaging", address: "4721 Burbank Rd. Ste. 1 Memphis, TN 38118", email: "ABattaly@richardspackaging.com"
 
 
+Product.delete_all
+Product.create! name: "Piaz Black Lid Retail", unit: 'bottle', image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "8.5", fluid_oz: "7.75"
+Product.create! name: "Zukti Stout Glass", unit: 'bottle', image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "13.75", fluid_oz: "12"
+Product.create! name: "Zukti Plastic", unit: 'bottle', image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
+Product.create! name: "Piaz Baby Food", unit: 'bottle', image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
+Product.create! name: "Zukti Half Gallon", unit: 'bottle', image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
+
 Customer.delete_all
 Customer.create!(name: "Everybody's Whole Foods", address: "501 N 2nd St., Fairfield, Iowa 52556 (641) 472-5199", email: "ewfemployees@gmail.com")
 Customer.create!(name: "Grill Masters Club", address: "6487 Afermatto St., Las Vegas, Nevada 89131 ", email: "info@grillmastersclub.com")

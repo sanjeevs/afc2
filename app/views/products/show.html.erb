@@ -17,6 +17,14 @@
       <td><%= pluralize(@product.left_amount, @product.unit)%></td>
     </tr>
     <tr>
+      <td><strong>Net Weight</strong></td>
+      <td><%= pluralize(@product.net_weight_oz, "ounce")%></td>
+    </tr>
+    <tr>
+      <td><strong>Bottle Volume</strong></td>
+      <td><%= pluralize(@product.fluid_oz, "fluid ounce")%></td>
+    </tr>
+    <tr>
       <td><strong>Adjust</strong></td>
       <td><%= pluralize(@product.adjust, @product.unit)%></td>
     </tr>
@@ -26,10 +34,11 @@
     </tr>
   </tbody>
 </table>
+<%= image_tag src="#{@product.image_path}", width: '100'%>
 </div>
 </div>
 </div>
-
+<br><br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn btn-default'  %>
