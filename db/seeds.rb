@@ -20,18 +20,19 @@ Supplier.create! name: 'Fyve Elements LLC', contact_name: 'Suresh Balakrishnan',
                  phone: '301-725-6699', email: 'suresh@fyvelements.com'
 Supplier.create! name: 'House Of Spices Inc', contact_name: 'Mukesh Patel', address: '4140 Blue Ridge Industrial Pkwy, Norcross, GA 30071',
                  phone: '770-263-0202', email: 'mpatel@houseofspicesindia.com'
-Supplier.create! name: "Richard Packaging", contact_name: 'Alexia Battaly", address: "4721 Burbank Rd. Ste. 1 Memphis, TN 38118", email: "ABattaly@richardspackaging.com"
+Supplier.create! name: "Richard Packaging", contact_name: 'Alexia Battaly', address: "4721 Burbank Rd. Ste. 1 Memphis, TN 38118", email: "ABattaly@richardspackaging.com"
 
 
 Product.delete_all
-Product.create! name: "Piaz Black Lid Retail", unit: 'bottle', image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "8.5", fluid_oz: "7.75"
-Product.create! name: "Zukti Stout Glass", unit: 'bottle', image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "13.75", fluid_oz: "12"
-Product.create! name: "Zukti Plastic", unit: 'bottle', image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
-Product.create! name: "Piaz Baby Food", unit: 'bottle', image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
-Product.create! name: "Zukti Half Gallon", unit: 'bottle', image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
+Product.create! name: "Piaz Black Lid Retail", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "8.5", fluid_oz: "7.75"
+Product.create! name: "Zukti Stout Glass", unit: "bottle", image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "13.75", fluid_oz: "12"
+Product.create! name: "Zukti Plastic", unit: "bottle", image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
+Product.create! name: "Piaz Baby Food", unit: "bottle", image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
+Product.create! name: "Zukti Half Gallon", unit: "bottle", image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
+Product.create! name: "Piaz Half Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "64"
 
 Customer.delete_all
-Customer.create!(name: "Everybody's Whole Foods", address: "501 N 2nd St., Fairfield, Iowa 52556 (641) 472-5199", email: "ewfemployees@gmail.com")
+Customer.create!(name: "Everybody\'s Whole Foods", address: "501 N 2nd St., Fairfield, Iowa 52556 (641) 472-5199", email: "ewfemployees@gmail.com")
 Customer.create!(name: "Grill Masters Club", address: "6487 Afermatto St., Las Vegas, Nevada 89131 ", email: "info@grillmastersclub.com")
 Customer.create!(name: "Lowe's Food Tyron Road Cary", address: "6430 Tryon Road, Cary, NC 27513, Wake (919) 859-9335", email: "")
 Customer.create!(name: "Lowe's Foods Apex", address: "5400 Apex Peakway, Apex, North Carolina 27502, Wake (919) 363-5376", email: "")
@@ -46,7 +47,6 @@ Customer.create!(name: "Lowe's Foods Louisburg", address: "115 South Bickett Blv
 Customer.create!(name: "Lowe's Foods Louisburg Road Raleigh", address: "8440 Louisburg Road, Suite 110, Raleigh, NC 27616, Wake (919) 266-1031", email: "")
 Customer.create!(name: "Lowe's Foods NC Hwy 42 West Raleigh", address: "7281 NC Hwy 42 West, Raleigh, NC 27603, Johnston (919) 329-6692", email: "")
 Customer.create!(name: "Lowe's Foods Strickland Road Raleigh", address: "9600 Strickland Road, Raleigh, NC 27615, Wake (919) 847-5661", email: "PBrown@lowesfoods.com")
-Customer.create!(name: "Lowes Foods", address: " ", email: "")
 Customer.create!(name: "NC General Stores", address: "150 S White St, Wake Forest, NC 27587 (919) 302-2289", email: "")
 Customer.create!(name: "Noemonde", address: "3817 Beryl Rd, Raleigh, NC 27607 (919) 828-1628", email: "Ashraf@neomonde.com")
 Customer.create!(name: "Savory Spice Shop", address: "8470 Honeycutt Rd #108, Raleigh, North Carolina 27615, United States ", email: "")
