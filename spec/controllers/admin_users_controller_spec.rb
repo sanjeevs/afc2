@@ -20,7 +20,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  before(:all) do
+  before(:each) do
     @admin_user = User.create!  name: "admin", password: 'foobar', password_confirmation: 'foobar', admin: true 
     @non_admin_user = User.create!  name: "non_admin", password: 'foobar', password_confirmation: 'foobar', admin: true 
   end

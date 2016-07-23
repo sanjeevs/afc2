@@ -48,4 +48,14 @@ RSpec.describe User, type: :model do
     it { should be_admin }
   end
  
+  describe 'when name has different case' do
+    before do
+      @user_with_same_name = @user.dup
+      @user_with_same_name.name = @user.name.upcase
+      @user_with_same_name.save
+    end
+    it "is not valid" do
+      expect(@user_with_same_name).to_not be_valid
+    end
+  end
 end

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  validates :name, presence: true, length: { maximum: 50 }
-
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false}
   before_save :create_remember_token
 
   has_secure_password
