@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   # Handle the POST submit
   def create
     # Find the user
-    user = User.find_by_name(params[:session][:name])
+    user = User.find_by_name(params[:session][:name].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in(user)
       redirect_back_or user
