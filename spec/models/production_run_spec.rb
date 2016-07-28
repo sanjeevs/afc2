@@ -11,5 +11,10 @@ RSpec.describe ProductionRun, type: :model do
     it { should_not be_valid }
   end
 
+  # Duplicate lot names are allowed.
+  describe 'when lot_name is not unique' do
+    before { @dup_production_run = @production_run.dup } 
+    it { @dup_production_run.should be_valid }
+  end
 
 end

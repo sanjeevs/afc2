@@ -27,7 +27,7 @@
   <div class="form-group">
     <%= f.label :production_run_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:product_shipment, :production_run_id, ProductionRun.all.order(:lot_name), :id, :lot_name, {prompt: "Please select a production run"}) %>
+      <%= collection_select(:product_shipment, :production_run_id, ProductionRun.all.uniq, :id, :lot_name, {prompt: "Please select a production run"}) %>
     </div>
     <%=f.error_span(:production_run_id) %>
   </div>

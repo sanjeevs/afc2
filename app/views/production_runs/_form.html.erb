@@ -48,14 +48,14 @@
   <div class="form-group">
     <%= f.label :mfgd_date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.date_select :mfgd_date, start_year: 2015, :class => 'form-control' %>
+      <%= f.date_select :mfgd_date, :order => [:month, :day, :year], :class => 'form-control' %>
     </div>
     <%=f.error_span(:mfgd_date) %>
   </div>
   <div class="form-group">
     <%= f.label :expiry_date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.date_select :expiry_date, start_year: 2015, :class => 'form-control' %>
+      <%= f.date_select :expiry_date, :order => [:month, :day, :year], :class => 'form-control' %>
     </div>
     <%=f.error_span(:expiry_date) %>
   </div>

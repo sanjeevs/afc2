@@ -12,7 +12,7 @@ User.create! name: 'neha', password: '@amit123', password_confirmation: '@amit12
 User.create! name: 'amit', password: '@neha123', password_confirmation: '@neha123', admin: false 
 
 Producer.delete_all
-Producer.create! name: 'Bobbees Bottling', contact_name: 'John Aschenbrenner', address: '42 Golden Leaf Drive, Louisburg, NC 27549',
+bobbee = Producer.create! name: 'Bobbees Bottling', contact_name: 'John Aschenbrenner', address: '42 Golden Leaf Drive, Louisburg, NC 27549',
                  phone: '919-496-4286', email: 'service@bobbeesbottling.com'
 
 Supplier.delete_all
@@ -24,12 +24,19 @@ Supplier.create! name: "Richard Packaging", contact_name: 'Alexia Battaly', addr
 
 
 Product.delete_all
-Product.create! name: "Piaz Black Lid Retail", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "8.5", fluid_oz: "7.75"
-Product.create! name: "Zukti Stout Glass", unit: "bottle", image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "13.75", fluid_oz: "12"
-Product.create! name: "Zukti Plastic", unit: "bottle", image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
-Product.create! name: "Piaz Baby Food", unit: "bottle", image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
-Product.create! name: "Zukti Half Gallon", unit: "bottle", image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
-Product.create! name: "Piaz Half Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "64"
+piaz_black_lid = Product.create! name: "Piaz Black Lid Retail", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "8.5", fluid_oz: "7.75"
+zukti_stout = Product.create! name: "Zukti Stout Glass", unit: "bottle", image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "13.75", fluid_oz: "12"
+zukti_plastic = Product.create! name: "Zukti 12 oz Plastic", unit: "bottle", image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
+piaz_baby = Product.create! name: "Piaz Baby Food", unit: "bottle", image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
+zukti_half = Product.create! name: "Zukti Half Gallon", unit: "bottle", image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
+piaz_half = Product.create! name: "Piaz Half Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "64"
+
+# New ones with no photos.
+piaz_full = Product.create! name: "Piaz 1 Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "128"
+zukti_full = Product.create! name: "Zukti 1 Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "128"
+zukti_10oz = Product.create! name: "Zukti 10 oz Glass Deep Finish", unit: "bottle", image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "", fluid_oz: "10"
+piaz_716oz = Product.create! name: "Piaz 7.16 oz Glass Deep Finish", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "", fluid_oz: "7.16"
+zukti_1166oz = Product.create! name: "Zukti 11.66 oz Glass Deep Finish", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "", fluid_oz: "11.66"
 
 Customer.delete_all
 Customer.create!(name: "Everybody\'s Whole Foods", address: "501 N 2nd St., Fairfield, Iowa 52556 (641) 472-5199", email: "ewfemployees@gmail.com")
