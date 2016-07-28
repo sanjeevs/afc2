@@ -8,6 +8,7 @@ RSpec.describe "production_runs/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match("#{@production_run.lot_name}")
+    expect(rendered).to match("#{@production_run.invoice_number}")
     expect(rendered).to match("#{@production_run.product.name}")
     expect(rendered).to match("#{@production_run.producer.name}")
     expect(rendered).to match("#{@production_run.mfgd_amount}")

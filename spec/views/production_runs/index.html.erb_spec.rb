@@ -11,6 +11,7 @@ RSpec.describe "production_runs/index", type: :view do
     render
     @production_runs.each do |entry|
       assert_select "a", entry.lot_name
+      assert_select "td", entry.invoice_number
     end
   end
 end

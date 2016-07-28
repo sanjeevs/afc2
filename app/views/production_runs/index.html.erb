@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:lot_name) %></th>
+      <th>Invoice#</th>
       <th><%= model_class.human_attribute_name(:producer_id) %></th>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:mfgd_amount) %></th>
@@ -18,6 +19,7 @@
     <% @production_runs.each do |production_run| %>
       <tr>
         <td><%= link_to production_run.lot_name, production_run_path(production_run) %></td>
+        <td><%= production_run.invoice_number %></td>
         <td><%= production_run.producer.name %></td>
         <td><%= production_run.product.name %></td>
         <td><%= pluralize production_run.mfgd_amount, production_run.product.unit%></td>

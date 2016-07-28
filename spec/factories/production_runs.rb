@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :production_run do
     sequence(:lot_name) { |n| "Lot Name #{n}" }
+    sequence(:invoice_number) { |n| "Invoice Number #{n}" }
     producer 
     product 
     mfgd_amount { rand(1..100) } 

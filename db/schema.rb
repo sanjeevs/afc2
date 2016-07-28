@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722130949) do
+ActiveRecord::Schema.define(version: 20160728103840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,9 +62,10 @@ ActiveRecord::Schema.define(version: 20160722130949) do
     t.integer  "mfgd_amount"
     t.date     "mfgd_date"
     t.date     "expiry_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "unit"
+    t.string   "invoice_number"
   end
 
   add_index "production_runs", ["producer_id"], name: "index_production_runs_on_producer_id", using: :btree
