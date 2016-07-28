@@ -5,7 +5,7 @@ class ProductionRunsController < ApplicationController
   # GET /production_runs
   # GET /production_runs.json
   def index
-    @production_runs = ProductionRun.all.order(:lot_name)
+    @production_runs = ProductionRun.all.order(:mfgd_date)
   end
 
   # GET /production_runs/1
