@@ -14,6 +14,10 @@ class ProductionRun < ActiveRecord::Base
   validates :mfgd_amount, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
 
 
+  def select_production_run(lot_name, product_id)
+    ProductionRun.find_by(lot_name: lot_name, product_id: product_id)
+  end
+
   private
   def set_default
     self.mfgd_amount ||= 0

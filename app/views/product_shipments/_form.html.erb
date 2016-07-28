@@ -23,13 +23,19 @@
     </div>
     <%=f.error_span(:customer_id) %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label "Products", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= collection_select(:product, :product_id, Product.all, :id, :name, {prompt: "Please select a product"}) %>
+    </div>
+  </div>
 
   <div class="form-group">
-    <%= f.label :production_run_id, :class => 'control-label col-lg-2' %>
+    <%= f.label "Lot Name", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:product_shipment, :production_run_id, ProductionRun.all.uniq, :id, :lot_name, {prompt: "Please select a production run"}) %>
+      <%= f.text_field :lot_name, :class => 'form-control'%>
     </div>
-    <%=f.error_span(:production_run_id) %>
   </div>
   
   <div class="form-group">

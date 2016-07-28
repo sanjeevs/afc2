@@ -69,6 +69,16 @@ class ProductShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_shipment_params
+      lot_name = params["product_shipment"]["lot_name"]
+      product_id = params["product"]["product_id"]
+      if(lot_name && product_id)
+        pr = ProductionRun.find_by(product_id: product_id, lot_name: lot_name)
+        flash[:notice] = "Could not locate production run with lot name #{lot_name}"
+        if(Product.exists?(product_id.to_i)) 
+          flash[:notice] << " and product name #{Product.find(product_id).name}"
+        end
+        params["product_shipment"]["production_run_id"] = pr.id if pr
+      end
       params.require(:product_shipment).permit(:order_amount, :return_amount, :ship_date, :production_run_id, :customer_id)
     end
 end
