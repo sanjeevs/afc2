@@ -12,6 +12,10 @@
       <td><%=@product_shipment.customer.name%></td>
     </tr>
     <tr>
+      <td><strong>Product Name</strong></td>
+      <td><%=@product_shipment.production_run.product.name%></td>
+    </tr>
+    <tr>
       <td><strong>Lot Name</strong></td>
       <td><%=@product_shipment.production_run.lot_name%></td>
     </tr>
@@ -29,6 +33,7 @@
     </tr>
   </tbody>
 </table>
+<%= image_tag src="#{@product_shipment.production_run.product.image_path}", width: '100'%>
 </div>
 </div>
 </div>

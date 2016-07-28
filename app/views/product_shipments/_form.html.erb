@@ -27,7 +27,7 @@
   <div class="form-group">
     <%= f.label "Products", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= collection_select(:product, :product_id, Product.all, :id, :name, {prompt: "Please select a product"}) %>
+      <%= collection_select(:product_shipment, :product_id, Product.all, :id, :name, {prompt: "Please select a product"}) %>
     </div>
   </div>
 

@@ -29,14 +29,13 @@ zukti_stout = Product.create! name: "Zukti Stout Glass", unit: "bottle", image_p
 zukti_plastic = Product.create! name: "Zukti 12 oz Plastic", unit: "bottle", image_path: "/products/zukti_plastic.png", net_weight_oz: "16.6", fluid_oz: "11.66"
 piaz_baby = Product.create! name: "Piaz Baby Food", unit: "bottle", image_path: "/products/piaz_baby_food.png", net_weight_oz: "5.12", fluid_oz: "4"
 zukti_half = Product.create! name: "Zukti Half Gallon", unit: "bottle", image_path: "/products/zukti_half_gallon.png", net_weight_oz: "84", fluid_oz: "64"
-piaz_half = Product.create! name: "Piaz Half Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "64"
+piaz_half = Product.create! name: "Piaz Half Gallon", unit: "bottle", image_path: "/products/piaz_half_gallon.png", net_weight_oz: "92", fluid_oz: "64"
 
 # New ones with no photos.
-piaz_full = Product.create! name: "Piaz 1 Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "128"
-zukti_full = Product.create! name: "Zukti 1 Gallon", unit: "bottle", image_path: "/products/no_picture.png", net_weight_oz: "92", fluid_oz: "128"
-zukti_10oz = Product.create! name: "Zukti 10 oz Glass Deep Finish", unit: "bottle", image_path: "/products/zukti_stout_retail.jpg", net_weight_oz: "", fluid_oz: "10"
-piaz_716oz = Product.create! name: "Piaz 7.16 oz Glass Deep Finish", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "", fluid_oz: "7.16"
-zukti_1166oz = Product.create! name: "Zukti 11.66 oz Glass Deep Finish", unit: "bottle", image_path: "/products/piaz_black_lid_retail.png", net_weight_oz: "", fluid_oz: "11.66"
+piaz_full = Product.create! name: "Piaz 1 Gallon", unit: "bottle", image_path: "/products/piaz_1_gallon.png", net_weight_oz: "184", fluid_oz: "128"
+zukti_full = Product.create! name: "Zukti 1 Gallon", unit: "bottle", image_path: "/products/zukti_1_gallon.png", net_weight_oz: "165", fluid_oz: "128"
+zukti_10oz = Product.create! name: "Zukti 10 oz Glass Deep Finish", unit: "bottle", image_path: "/products/zukti_10oz_glass.png", net_weight_oz: "11.6", fluid_oz: "10"
+piaz_716oz = Product.create! name: "Piaz 7.16 oz Glass Deep Finish", unit: "bottle", image_path: "/products/piaz_716oz_glass.png", net_weight_oz: "10.6", fluid_oz: "7.16"
 
 Customer.delete_all
 Customer.create!(name: "Everybody\'s Whole Foods", address: "501 N 2nd St., Fairfield, Iowa 52556 (641) 472-5199", email: "ewfemployees@gmail.com")
@@ -69,13 +68,13 @@ ProductionRun.create!(producer_id: bobbee.id, invoice_number: "201502295", produ
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "201502353", product_id: piaz_716oz.id, mfgd_date: "2015-12-03", expiry_date: "2017-06-03", lot_name: "L3371215", mfgd_amount: 130)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160011", product_id: piaz_716oz.id, mfgd_date: "2016-01-12", expiry_date: "2017-07-12", lot_name: "L0120116", mfgd_amount: 97)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160011", product_id: piaz_full.id, mfgd_date: "2016-01-12", expiry_date: "2017-07-12", lot_name: "L0120116", mfgd_amount: 3)
-ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160084", product_id: zukti_1166oz.id, mfgd_date: "2016-01-18", expiry_date: "2017-07-18", lot_name: "L_MISSING", mfgd_amount: 81)
+ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160084", product_id: zukti_10oz.id, mfgd_date: "2016-01-18", expiry_date: "2017-07-18", lot_name: "L_MISSING", mfgd_amount: 81)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160084", product_id: zukti_stout.id, mfgd_date: "2016-01-18", expiry_date: "2017-07-18", lot_name: "L_MISSING", mfgd_amount: 12)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160084", product_id: piaz_black_lid.id, mfgd_date: "2016-01-18", expiry_date: "2017-07-18", lot_name: "L_MISSING", mfgd_amount: 12)
-ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160289", product_id: zukti_1166oz.id, mfgd_date: "2016-02-17", expiry_date: "2017-08-17", lot_name: "L0180116", mfgd_amount: 32)
-ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160464", product_id: zukti_1166oz.id, mfgd_date: "2016-03-11", expiry_date: "2017-09-11", lot_name: "L07010316", mfgd_amount: 141)
+ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160289", product_id: zukti_10oz.id, mfgd_date: "2016-02-17", expiry_date: "2017-08-17", lot_name: "L0180116", mfgd_amount: 32)
+ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160464", product_id: zukti_10oz.id, mfgd_date: "2016-03-11", expiry_date: "2017-09-11", lot_name: "L07010316", mfgd_amount: 141)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160464", product_id: zukti_full.id, mfgd_date: "2016-03-11", expiry_date: "2017-09-11", lot_name: "L07010316", mfgd_amount: 2)
-ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160464", product_id: zukti_1166oz.id, mfgd_date: "2016-03-11", expiry_date: "2017-09-11", lot_name: "L07010316", mfgd_amount: 168)
+ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160464", product_id: zukti_10oz.id, mfgd_date: "2016-03-11", expiry_date: "2017-09-11", lot_name: "L07010316", mfgd_amount: 168)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160537", product_id: zukti_half.id, mfgd_date: "2016-03-28", expiry_date: "2017-09-28", lot_name: "L0880316", mfgd_amount: 6)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160537", product_id: zukti_stout.id, mfgd_date: "2016-03-28", expiry_date: "2017-09-28", lot_name: "L0880316", mfgd_amount: 217)
 ProductionRun.create!(producer_id: bobbee.id, invoice_number: "20160560", product_id: piaz_black_lid.id, mfgd_date: "2016-03-30", expiry_date: "2017-09-30", lot_name: "L0890316", mfgd_amount: 379)

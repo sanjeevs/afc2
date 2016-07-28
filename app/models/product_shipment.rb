@@ -1,5 +1,5 @@
 class ProductShipment < ActiveRecord::Base
-  attr_accessor :lot_name
+  attr_accessor :lot_name, :product_id
   belongs_to :production_run
   belongs_to :customer
   validates :production_run, presence: true

@@ -10,5 +10,6 @@ RSpec.describe "product_shipments/show", type: :view do
     expect(rendered).to match("#{@product_shipment.customer.name}")
     expect(rendered).to match("#{@product_shipment.production_run.lot_name}")
     expect(rendered).to match("#{@product_shipment.order_amount}")
+    expect(rendered).to match("#{@product_shipment.production_run.product.name}")
   end
 end

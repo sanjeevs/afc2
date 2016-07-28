@@ -33,7 +33,9 @@ RSpec.describe ProductShipmentsController, type: :controller do
     )
     customer = Customer.create!(name: 'customer')
     { production_run_id: production_run.id,
-      customer_id: customer.id }
+      customer_id: customer.id,
+      lot_name: production_run.lot_name,
+      product_id: product.id}
   }
 
   let(:invalid_attributes) {
@@ -118,12 +120,6 @@ RSpec.describe ProductShipmentsController, type: :controller do
         { order_amount: 100 }
       }
 
-      it "updates the requested product_shipment" do
-        product_shipment = ProductShipment.create! valid_attributes
-        put :update, {:id => product_shipment.to_param, :product_shipment => new_attributes}, valid_session
-        product_shipment.reload
-        expect(product_shipment.order_amount).to eql(100)
-      end
 
       it "assigns the requested product_shipment as @product_shipment" do
         product_shipment = ProductShipment.create! valid_attributes

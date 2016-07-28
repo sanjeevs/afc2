@@ -1,0 +1,45 @@
+#!/usr/bin/env  ruby
+
+require 'csv'
+
+csv = ARGV[0]
+
+def run(filename)
+  puts "ProductionRun.delete_all"
+  CSV.foreach(filename, col_sep: ',') do |row|
+    case
+    when row[2].match(/Glass Stout/)
+      prod = "zukti_stout"
+    when row[2].match(/Piaz 7.75/)
+      prod = "piaz_black_lid"
+    when row[2].match(/Piaz 4 oz/)
+      prod = "piaz_baby"
+    when row[2].match(/Zukti 12 oz Plastic Ring/)
+      prod = "zukti_plastic"
+    when row[2].match(/Piaz 1\/2 Gallon/)
+      prod = "piaz_half"
+    when row[2].match(/Piaz 1 Gallon/)
+      prod = "piaz_full"
+    when row[2].match(/Zukti 1\/2 Gallon/)
+      prod = "zukti_half"
+    when row[2].match(/Zukti 1 Gallon/)
+      prod = "zukti_full"
+    when row[2].match(/Zukti 10 oz glass Deep Finish/)
+      prod = "zukti_10oz"
+    when row[2].match(/Piaz 7.16 oz/)
+      prod = "piaz_716oz"
+    when row[2].match(/Zukti 11.66 oz/)
+      prod = "zukti_10oz"
+    else
+      puts "ERROR:NO matching #{row[2]}"
+      exit 1
+    end
+    lot_name = row[3] 
+    mfgd_date = Date.strptime(row[0], "%m/%d/%Y").to_s
+    expiry_date = Date.strptime(row[0], "%m/%d/%Y") >> 18
+    expiry_date = expiry_date.to_s 
+    puts "ProductionRun.create!(producer_id: bobbee.id, invoice_number: \"#{row[1]}\", product_id: #{prod}.id, mfgd_date: \"#{mfgd_date}\", expiry_date: \"#{expiry_date}\", lot_name: \"#{lot_name}\", mfgd_amount: #{row[4]})"
+  end
+end
+
+run(csv)
