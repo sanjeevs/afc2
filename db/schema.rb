@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728103840) do
+ActiveRecord::Schema.define(version: 20160802141421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20160728103840) do
 
   create_table "supply_consumptions", force: :cascade do |t|
     t.integer  "supply_id"
-    t.integer  "used_amount"
+    t.float    "used_amount"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "production_run_id"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20160728103840) do
   add_index "supply_consumptions", ["supply_id"], name: "index_supply_consumptions_on_supply_id", using: :btree
 
   create_table "supply_shipments", force: :cascade do |t|
-    t.integer  "order_amount"
+    t.float    "order_amount"
     t.date     "ship_date"
     t.integer  "supplier_id"
     t.datetime "created_at",   null: false
