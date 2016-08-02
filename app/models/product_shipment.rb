@@ -10,6 +10,10 @@ class ProductShipment < ActiveRecord::Base
   validates :order_amount, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
   
   validates :return_amount, numericality: { only_interger: true, greater_than_or_equal_to: 0}, allow_blank: true
+  def self.total_order_amount(customer_id)
+    ProductShipment.where(customer_id: customer_id).sum(:order_amount)
+  end
+
   private
   def set_defaults
     self.order_amount ||= 0

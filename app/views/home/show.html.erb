@@ -57,4 +57,28 @@
   </tbody>
 </table>
 </div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Customer Shipments</div>
+  <div class="panel-body">
+<table class="table table-bordered table-stripped table-hover">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Customer Address</th>
+      <th>Total Products Shipped</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_shipments.each do |shipment| %>
+    <tr>
+      <td><%= shipment.name %></td>
+      <td><%= shipment.address %></td>
+      <td><%= pluralize shipment.total_order_amount, "bottle" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
 </div>

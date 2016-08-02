@@ -64,4 +64,5 @@ end
 
 gem 'rails_12factor', group: :production
 gem 'turnout'
+gem 'seed_dump'
 ruby "2.2.4"

@@ -4,6 +4,7 @@ RSpec.describe "home/show", type: :view do
   before(:each) do
     @products = Array.new(10) { FactoryGirl.create(:product) }
     @supplies = Array.new(10) { FactoryGirl.create(:supply) }
+    @customer_shipments = []
   end
 
   it "renders attributes in <p>" do
