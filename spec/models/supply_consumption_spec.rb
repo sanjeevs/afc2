@@ -11,6 +11,6 @@ RSpec.describe SupplyConsumption, type: :model do
       @supply_consumption.used_amount = nil
       @supply_consumption.save
     end
-    it { expect(@supply_consumption.used_amount).to eql(0) }
+    it { expect(@supply_consumption.used_amount).to eql(0.0) }
   end
 end

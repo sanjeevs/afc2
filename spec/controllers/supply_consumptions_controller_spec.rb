@@ -116,7 +116,7 @@ RSpec.describe SupplyConsumptionsController, type: :controller do
         supply_consumption = SupplyConsumption.create! valid_attributes
         put :update, {:id => supply_consumption.to_param, :supply_consumption => new_attributes}, valid_session
         supply_consumption.reload
-        expect(supply_consumption.used_amount).to eql(10)
+        expect(supply_consumption.used_amount).to eql(10.0)
       end
 
       it "assigns the requested supply_consumption as @supply_consumption" do

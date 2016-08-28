@@ -108,14 +108,14 @@ RSpec.describe SupplyShipmentsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { order_amount: 100 }
+        { order_amount: 100.0 }
       }
 
       it "updates the requested supply_shipment" do
         supply_shipment = SupplyShipment.create! valid_attributes
         put :update, {:id => supply_shipment.to_param, :supply_shipment => new_attributes}, valid_session
         supply_shipment.reload
-        expect(supply_shipment.order_amount).to eql(100)
+        expect(supply_shipment.order_amount).to eql(100.0)
       end
 
       it "assigns the requested supply_shipment as @supply_shipment" do

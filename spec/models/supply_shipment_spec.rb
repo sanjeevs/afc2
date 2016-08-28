@@ -11,6 +11,6 @@ RSpec.describe SupplyShipment, type: :model do
       @supply_shipment.order_amount = nil
       @supply_shipment.save
     end
-    it { expect(@supply_shipment.order_amount).to eql(0) }
+    it { expect(@supply_shipment.order_amount).to eql(0.0) }
   end
 end
