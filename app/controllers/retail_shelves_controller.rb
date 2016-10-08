@@ -1,4 +1,5 @@
 class RetailShelvesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_retail_shelf, only: [:show, :edit, :update, :destroy]
 
   # GET /retail_shelves
@@ -19,6 +20,7 @@ class RetailShelvesController < ApplicationController
 
   # GET /retail_shelves/1/edit
   def edit
+    @retail_shelf.updated_by ||= current_user.name 
   end
 
   # POST /retail_shelves

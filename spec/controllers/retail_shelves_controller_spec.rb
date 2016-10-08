@@ -25,7 +25,8 @@ RSpec.describe RetailShelvesController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     { customer_id: Customer.create!(name: 'retail_customer').id,
-      product_id: Product.create!(name: 'retail_product').id }
+      product_id: Product.create!(name: 'retail_product').id,
+      updated_by: 'test_user' }
   }
 
   let(:invalid_attributes) {

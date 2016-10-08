@@ -14,6 +14,14 @@ RSpec.describe RetailShelf, type: :model do
     it { expect(@retail_shelf.shelf_amount).to eql(0) }
   end
 
+  describe "summary comment" do
+    it "should have max length" do
+      @retail_shelf.comment = "a" * 100
+      @retail_shelf.save
+      expect { @retail_shelf.summary_comment.size < 55 }
+    end
+  end
+
   describe  "associations" do
     it "shelf amount with duplicate customer and product" do
       copy_shelf = @retail_shelf.dup

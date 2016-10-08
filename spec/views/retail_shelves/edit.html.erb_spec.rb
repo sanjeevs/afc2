@@ -12,7 +12,7 @@ RSpec.describe "retail_shelves/edit", type: :view do
 
       assert_select "input#retail_shelf_shelf_amount[name=?]", "retail_shelf[shelf_amount]"
 
-      assert_select "input#retail_shelf_comment[name=?]", "retail_shelf[comment]"
+      assert_select "textarea#retail_shelf_comment[name=?]", "retail_shelf[comment]"
     end
   end
 end
