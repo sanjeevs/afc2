@@ -5,5 +5,5 @@ class Customer < ActiveRecord::Base
   # A customer has many product shiptments. If customer is deleted then
   # there are no shipments.
   has_many :product_shipments, dependent: :destroy
-
+  has_many :retail_shelves, dependent: :destroy
 end

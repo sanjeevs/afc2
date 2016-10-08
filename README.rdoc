@@ -8,6 +8,31 @@ The purpose of the sw is to
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+* Database upgrade
+  Make sure that heroku is set to 'in service'.
+  afc2/app> heroku maintenance:on --app afc2
+
+  PG Dump the database
+  afc2/app> heroku pg:backups capture  --app afc2 DATABASE_URL
+
+  This will create "DATABASE --backup----> b060"
+
+  Download the backup from AWS URL.
+  curl -o latest.dump `heroku pg:backups public-url --app afc2`
+
+  You can dump the text output of the database
+  pg_restore latest.dump > latest.sql
+
+  Create the local database on psql
+  createdb mydb
+
+  Load the database into your local database
+  pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
+
+  Switch rails application to start using the database
+  edit app/config/database.yaml for pointing the database name.
+
+
 Things you may want to cover:
 
 * Ruby version

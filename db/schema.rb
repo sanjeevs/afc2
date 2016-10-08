@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802141421) do
+ActiveRecord::Schema.define(version: 20161008025453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 20160802141421) do
 
   add_index "products", ["unique_name"], name: "index_products_on_unique_name", using: :btree
 
+  create_table "retail_shelves", force: :cascade do |t|
+    t.integer  "shelf_amount"
+    t.text     "comment"
+    t.string   "updated_by"
+    t.date     "updated_on"
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "retail_shelves", ["customer_id", "product_id"], name: "index_retail_shelves_on_customer_id_and_product_id", unique: true, using: :btree
+
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"
     t.string   "unique_name"
@@ -145,6 +158,8 @@ ActiveRecord::Schema.define(version: 20160802141421) do
   add_foreign_key "product_shipments", "production_runs"
   add_foreign_key "production_runs", "producers"
   add_foreign_key "production_runs", "products"
+  add_foreign_key "retail_shelves", "customers"
+  add_foreign_key "retail_shelves", "products"
   add_foreign_key "supply_consumptions", "supplies"
   add_foreign_key "supply_shipments", "suppliers"
   add_foreign_key "supply_shipments", "supplies"

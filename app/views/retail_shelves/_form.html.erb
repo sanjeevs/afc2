@@ -1,0 +1,69 @@
+<%= form_for @retail_shelf, :html => { :class => "form-horizontal retail_shelf" } do |f| %>
+
+  <% if @retail_shelf.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@retail_shelf.errors.count, "error") %> prohibited this retail_shelf from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @retail_shelf.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :shelf_amount, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :shelf_amount, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:shelf_amount) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :comment, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :comment, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:comment) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :updated_by, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :updated_by, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:updated_by) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :updated_on, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :updated_on, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:updated_on) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :customer_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :customer_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:customer_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :product_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :product_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:product_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                retail_shelves_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
