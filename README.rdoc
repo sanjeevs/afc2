@@ -10,8 +10,8 @@ application up and running.
 
 * Database upgrade
 
-  Make sure that heroku is set to 'in service'.
->  afc2/app> heroku maintenance:on --app afc2
+  Make sure that heroku is set to 'in maintenance mode'.
+  afc2/app> heroku maintenance:on --app afc2
 
 * PG Dump the database
 >  afc2/app> heroku pg:backups capture  --app afc2 DATABASE_URL
@@ -21,10 +21,12 @@ application up and running.
 * Download the backup from AWS URL.
 >  curl -o latest.dump `heroku pg:backups public-url --app afc2`
 
-* You can dump the text output of the database
+* Move the data base to the backup directory with year_mon_day.dump name
+
+* Debug dump the text output of the database
 >  pg_restore latest.dump > latest.sql
 
-* Create the local database on psql
+* Create the local database on psql (like afc2_xxx)
 > createdb mydb
 
 *  Load the database into your local database
@@ -32,5 +34,5 @@ application up and running.
 
 *  Switch rails application to start using the database
 
-   edit app/config/database.yaml for pointing the database name.
+   edit config/database.yaml for pointing the database name.
 
