@@ -37,4 +37,20 @@ RSpec.describe Customer, type: :model do
       expect(@customer_with_same_name).to_not be_valid
     end
   end
+
+  describe "associations" do
+    before do
+      10.times do
+        @product_shipment = FactoryGirl.create(:product_shipment)
+        @product_shipment.customer_id = @customer.id
+        @product_shipment.save!
+      end
+    end
+
+    it "should have correct size" do
+      expect(@customer.product_shipments.size).to eql(10) 
+    end
+    
+  end
+
 end

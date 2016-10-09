@@ -13,6 +13,14 @@ class RetailShelf < ActiveRecord::Base
     end
   end
 
+  def product_shipments
+    customer.product_shipped(product_id)
+  end
+
+  def total_ordered
+    customer.total_product_ordered(product_id)
+  end
+
   private
   def set_defaults
     self.shelf_amount ||= 0

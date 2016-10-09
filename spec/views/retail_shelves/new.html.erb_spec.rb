@@ -10,12 +10,6 @@ RSpec.describe "retail_shelves/new", type: :view do
 
     assert_select "form[action=?][method=?]", retail_shelves_path, "post" do
 
-      assert_select "input#retail_shelf_shelf_amount[name=?]", "retail_shelf[shelf_amount]"
-
-      assert_select "textarea#retail_shelf_comment[name=?]", "retail_shelf[comment]"
-
-      assert_select "input#retail_shelf_updated_by[name=?]", "retail_shelf[updated_by]"
-
     end
   end
 end
