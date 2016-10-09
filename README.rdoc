@@ -11,7 +11,7 @@ application up and running.
 * Database upgrade
 
   Make sure that heroku is set to 'in maintenance mode'.
-  afc2/app> heroku maintenance:on --app afc2
+  heroku maintenance:on --app afc2
 
 * PG Dump the database
 >  afc2/app> heroku pg:backups capture  --app afc2 DATABASE_URL
@@ -35,4 +35,20 @@ application up and running.
 *  Switch rails application to start using the database
 
    edit config/database.yaml for pointing the database name.
+
+* Create the git remote 'heroku'
+
+  git remote add heroku https://git.heroku.com/afc2.git
+
+* Deploy to heroku
+  
+  git push heroku master
+
+* Apply the migration
+  
+  heroku run rake db:migrate
+  
+* Enable app on heroku.
+  heroku maintenance:off --app afc2
+  afc2/app> heroku maintenance:on --app afc2
 
