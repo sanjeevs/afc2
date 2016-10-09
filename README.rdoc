@@ -9,50 +9,28 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 * Database upgrade
+
   Make sure that heroku is set to 'in service'.
-  afc2/app> heroku maintenance:on --app afc2
+>  afc2/app> heroku maintenance:on --app afc2
 
-  PG Dump the database
-  afc2/app> heroku pg:backups capture  --app afc2 DATABASE_URL
+* PG Dump the database
+>  afc2/app> heroku pg:backups capture  --app afc2 DATABASE_URL
 
-  This will create "DATABASE --backup----> b060"
+**This will create "DATABASE --backup----> b060"**
 
-  Download the backup from AWS URL.
-  curl -o latest.dump `heroku pg:backups public-url --app afc2`
+* Download the backup from AWS URL.
+>  curl -o latest.dump `heroku pg:backups public-url --app afc2`
 
-  You can dump the text output of the database
-  pg_restore latest.dump > latest.sql
+* You can dump the text output of the database
+>  pg_restore latest.dump > latest.sql
 
-  Create the local database on psql
-  createdb mydb
+* Create the local database on psql
+> createdb mydb
 
-  Load the database into your local database
-  pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
+*  Load the database into your local database
+>  pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
 
-  Switch rails application to start using the database
-  edit app/config/database.yaml for pointing the database name.
+*  Switch rails application to start using the database
 
+   edit app/config/database.yaml for pointing the database name.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
