@@ -25,7 +25,7 @@
         <td><%= retail_shelf.product.name %></td>
         <td><%= retail_shelf.shelf_amount %></td>
         <td><%= retail_shelf.checked_by %></td>
-        <td><%= retail_shelf.checked_on %></td>
+        <td><%= retail_shelf.checked_on.to_s(:long) %></td>
         <td><%= retail_shelf.summary_comment %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
