@@ -20,12 +20,12 @@
       <td><%= pluralize @retail_shelf.shelf_amount, @retail_shelf.product.unit%></td>
     </tr>
     <tr>
-      <td><strong>Updated By</strong></td>
-      <td><%= @retail_shelf.updated_by%></td>
+      <td><strong>Checked By</strong></td>
+      <td><%= @retail_shelf.checked_by%></td>
     </tr>
     <tr>
-      <td><strong>Updated On</strong></td>
-      <td><%= @retail_shelf.updated_on.to_s(:long) if @retail_shelf.updated_on %></td>
+      <td><strong>Checked On</strong></td>
+      <td><%= @retail_shelf.checked_on.to_s(:long) if @retail_shelf.checked_on %></td>
     </tr>
     <tr>
       <td><strong>Comment</strong></td>

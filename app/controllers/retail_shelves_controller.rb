@@ -20,7 +20,7 @@ class RetailShelvesController < ApplicationController
 
   # GET /retail_shelves/1/edit
   def edit
-    @retail_shelf.updated_by ||= current_user.name 
+    @retail_shelf.checked_by ||= current_user.name 
   end
 
   # POST /retail_shelves
@@ -71,6 +71,6 @@ class RetailShelvesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def retail_shelf_params
-      params.require(:retail_shelf).permit(:shelf_amount, :comment, :updated_by, :updated_on, :customer_id, :product_id)
+      params.require(:retail_shelf).permit(:shelf_amount, :comment, :checked_by, :checked_on, :customer_id, :product_id)
     end
 end

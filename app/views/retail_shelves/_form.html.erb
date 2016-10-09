@@ -44,14 +44,14 @@
   <div class="form-group">
     <%= f.label 'checked_by', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :updated_by, :class => 'form-control' %>
+      <%= f.text_field :checked_by, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:updated_by) %>
+    <%=f.error_span(:checked_by) %>
   </div>
   <div class="form-group">
     <%= f.label :checked_on, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :checked_on, :class => 'form-control' %>
+      <%= f.date_field :checked_on, :class => 'form-control' %>
     </div>
     <%=f.error_span(:checked_on) %>
   </div>

@@ -26,7 +26,7 @@ RSpec.describe RetailShelvesController, type: :controller do
   let(:valid_attributes) {
     { customer_id: Customer.create!(name: 'retail_customer').id,
       product_id: Product.create!(name: 'retail_product').id,
-      updated_by: 'test_user' }
+      checked_by: 'test_user' }
   }
 
   let(:invalid_attributes) {

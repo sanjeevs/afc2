@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009143024) do
+ActiveRecord::Schema.define(version: 20161009162101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20161009143024) do
   create_table "retail_shelves", force: :cascade do |t|
     t.integer  "shelf_amount"
     t.text     "comment"
-    t.string   "updated_by"
+    t.string   "checked_by"
     t.date     "updated_on"
     t.integer  "customer_id"
     t.integer  "product_id"
