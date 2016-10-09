@@ -14,6 +14,13 @@ RSpec.describe RetailShelf, type: :model do
     it { expect(@retail_shelf.shelf_amount).to eql(0) }
   end
 
+  describe "shelf checked_at default value" do
+    before do
+      @retail_shelf.checked_on = nil
+      @retail_shelf.save
+    end
+    it { expect(@retail_shelf.checked_on).to eql(Date.today) }
+  end
   describe "summary comment" do
     it "should have max length" do
       @retail_shelf.comment = "a" * 100

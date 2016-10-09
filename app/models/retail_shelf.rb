@@ -24,5 +24,6 @@ class RetailShelf < ActiveRecord::Base
   private
   def set_defaults
     self.shelf_amount ||= 0
+    self.checked_on ||= Date.today
   end
 end
