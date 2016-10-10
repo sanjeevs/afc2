@@ -1,11 +1,12 @@
 class ProductShipmentsController < ApplicationController
   before_action :signed_in_user
   before_action :set_product_shipment, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /product_shipments
   # GET /product_shipments.json
   def index
-    @product_shipments = ProductShipment.all
+    @product_shipments = ProductShipment.all.order(sort_column + " " + sort_direction)
   end
 
   # GET /product_shipments/1
@@ -88,4 +89,12 @@ class ProductShipmentsController < ApplicationController
 
       params.require(:product_shipment).permit(:order_amount, :return_amount, :ship_date, :production_run_id, :customer_id)
     end
+
+      def sort_column
+        ProductShipment.column_names.include?(params[:sort]) ? params[:sort] : "customer_id"
+      end
+
+      def sort_direction
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      end
 end

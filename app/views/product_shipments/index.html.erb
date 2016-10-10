@@ -9,12 +9,12 @@
   <thead>
     <tr>
       <th>Index</th>
-      <th>Ship Date</th>
-      <th>Customer</th>
-      <th>Product Name</th>
-      <th>Lot Name</th>
-      <th>Return Amount</th>
-      <th>Order Amount</th>
+      <th><%= sortable "ship_date"%></th>
+      <th><%= sortable "customer_id", "Customer" %></th>
+      <th><%= sortable "product_id", "Product Name" %></th>
+      <th><%= sortable "lot_name", "Lot Name" %></th>
+      <th><%= sortable "return_amount" %></th>
+      <th><%= sortable "order_amount" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
