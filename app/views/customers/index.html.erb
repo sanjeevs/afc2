@@ -9,11 +9,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:contact_name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "contact_name" %></th>
+      <th><%= sortable "address" %></th>
+      <th><%= sortable "email" %></th>
+      <th><%= sortable "phone" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>

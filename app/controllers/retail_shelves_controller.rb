@@ -2,10 +2,12 @@ class RetailShelvesController < ApplicationController
   before_action :signed_in_user
   before_action :set_retail_shelf, only: [:show, :edit, :update, :destroy]
 
+  helper_method :sort_column, :sort_direction
+
   # GET /retail_shelves
   # GET /retail_shelves.json
   def index
-    @retail_shelves = RetailShelf.all
+    @retail_shelves = RetailShelf.all.order(sort_column + " " + sort_direction)
   end
 
   # GET /retail_shelves/1
@@ -73,4 +75,13 @@ class RetailShelvesController < ApplicationController
     def retail_shelf_params
       params.require(:retail_shelf).permit(:shelf_amount, :comment, :checked_by, :checked_on, :customer_id, :product_id)
     end
+
+    def sort_column
+      RetailShelf.column_names.include?(params[:sort]) ? params[:sort] : "customer_id"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
 end

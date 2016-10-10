@@ -2,10 +2,11 @@ class CustomersController < ApplicationController
   before_action :signed_in_user
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  helper_method :sort_column, :sort_direction
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order(sort_column + " " + sort_direction)
   end
 
   # GET /customers/1
@@ -72,4 +73,12 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:name, :contact_name, :address, :email, :phone)
     end
+    def sort_column
+      Customer.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
 end

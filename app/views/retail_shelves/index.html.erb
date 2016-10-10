@@ -9,12 +9,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:customer_id) %></th>
-      <th><%= model_class.human_attribute_name(:product_id) %></th>
-      <th><%= model_class.human_attribute_name(:shelf_amount) %></th>
-      <th><%= model_class.human_attribute_name(:checked_by) %></th>
-      <th><%= model_class.human_attribute_name(:checked_on) %></th>
-      <th><%= model_class.human_attribute_name(:comment) %></th>
+      <th><%= sortable "customer_id", "Customer" %></th>
+      <th><%= sortable "product_id", "Product" %></th>
+      <th><%= sortable "shelf_amount"%></th>
+      <th><%= sortable "checked_by"%></th>
+      <th><%= sortable "checked_on"%></th>
+      <th><%= sortable "comment" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
