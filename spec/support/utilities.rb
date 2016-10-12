@@ -7,6 +7,10 @@ def sign_in(user, options={})
   click_button "Sign in"
 end
 
+def sort_column
+  'asc'
+end
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     page.should have_selector('div.alert.alert-error', text: message)

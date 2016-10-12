@@ -9,6 +9,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th><%= sortable "customer_id", "Customer" %></th>
       <th><%= sortable "product_id", "Product" %></th>
       <th><%= sortable "shelf_amount"%></th>
@@ -19,17 +20,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @retail_shelves.each do |retail_shelf| %>
+    <% @retail_shelves.each_with_index do |retail_shelf, i| %>
       <tr>
-        <td><%= retail_shelf.customer.name %></td>
-        <td><%= retail_shelf.product.name %></td>
+        <td><%=link_to i + 1, retail_shelf_path(retail_shelf)%></td>
+        <td><%= link_to retail_shelf.customer.name, retail_shelf_path(retail_shelf)%></td>
+        <td><%= link_to retail_shelf.product.name, retail_shelf_path(retail_shelf) %></td>
         <td><%= retail_shelf.shelf_amount %></td>
         <td><%= retail_shelf.checked_by %></td>
         <td><%= retail_shelf.checked_on.to_s(:long) if retail_shelf.checked_on%></td>
         <td><%= retail_shelf.summary_comment %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      retail_shelf_path(retail_shelf), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_retail_shelf_path(retail_shelf), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
