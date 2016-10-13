@@ -19,7 +19,7 @@ RSpec.describe RetailShelf, type: :model do
       @retail_shelf.checked_on = nil
       @retail_shelf.save
     end
-    it { expect(@retail_shelf.checked_on).to eql(Date.today) }
+    it { expect(@retail_shelf.checked_on).to eql(nil) }
   end
   describe "summary comment" do
     it "should have max length" do

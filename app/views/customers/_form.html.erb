@@ -50,6 +50,22 @@
     </div>
     <%=f.error_span(:phone) %>
   </div>
+  <div class="form-group">
+    <%= f.label :account_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= collection_select(:customer, :account_id, Account.all, :id, :name,
+          {:prompt => 'Please select the account name'}) %>
+    </div>
+    <%=f.error_span(:account_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= collection_select(:customer, :category_id, Category.all, :id, :name,
+          {:prompt => 'Please select the category name'}) %>
+    </div>
+    <%=f.error_span(:category_id) %>
+  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

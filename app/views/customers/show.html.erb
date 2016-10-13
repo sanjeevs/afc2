@@ -27,6 +27,14 @@
       <td><strong>Phone</strong></td>
       <td><%=@customer.phone%></td>
     </tr>
+    <tr>
+      <td><strong>Category</strong></td>
+      <td><%=@customer.category.name if @customer.category%></td>
+    </tr>
+    <tr>
+      <td><strong>Account</strong></td>
+      <td><%=@customer.account.name if @customer.account%></td>
+    </tr>
   </tbody>
 </table>
 </div>

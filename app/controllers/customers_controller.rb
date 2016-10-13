@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :contact_name, :address, :email, :phone)
+      params.require(:customer).permit(:name, :contact_name, :address, :email, :phone, :account_id, :category_id)
     end
     def sort_column
       Customer.column_names.include?(params[:sort]) ? params[:sort] : "name"

@@ -106,7 +106,13 @@ RSpec.describe CustomersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { name: "New updated user" }
+        { name: "New updated user",
+          contact_name: "New contact",
+          address: "New Address",
+          email: "example@org", 
+          phone: "1234567890", 
+          account_id: FactoryGirl.create(:account).id,
+          category_id: FactoryGirl.create(:category).id}
       }
 
       it "updates the requested customer" do
@@ -114,6 +120,13 @@ RSpec.describe CustomersController, type: :controller do
         put :update, {:id => customer.to_param, :customer => new_attributes}, valid_session
         customer.reload
         expect(customer).to be_valid
+        expect(customer.name).to eql new_attributes[:name]
+        expect(customer.contact_name).to eql new_attributes[:contact_name]
+        expect(customer.address).to eql new_attributes[:address]
+        expect(customer.email).to eql new_attributes[:email]
+        expect(customer.phone).to eql new_attributes[:phone]
+        expect(customer.account_id).to eql new_attributes[:account_id]
+        expect(customer.category_id).to eql new_attributes[:category_id]
       end
 
       it "assigns the requested customer as @customer" do

@@ -23,6 +23,7 @@ class RetailShelvesController < ApplicationController
   # GET /retail_shelves/1/edit
   def edit
     @retail_shelf.checked_by ||= current_user.name 
+    @retail_shelf.checked_on ||= Date.today 
   end
 
   # POST /retail_shelves

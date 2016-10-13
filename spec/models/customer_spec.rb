@@ -53,4 +53,15 @@ RSpec.describe Customer, type: :model do
     
   end
 
+  describe "belongs to account" do
+    before do 
+      @account = FactoryGirl.create(:account)
+      @customer.account_id = @account.id
+    end
+
+    it "should get the name" do
+      expect(@customer.account.name).to eql(@account.name)
+    end
+  end
+
 end

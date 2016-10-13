@@ -12,8 +12,9 @@
       <th><%= sortable "name" %></th>
       <th><%= sortable "contact_name" %></th>
       <th><%= sortable "address" %></th>
-      <th><%= sortable "email" %></th>
-      <th><%= sortable "phone" %></th>
+      <th><%= sortable "account_id", "account" %></th>
+      <th><%= sortable "category_id", "category" %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,8 +24,8 @@
         <td><%= link_to customer.name, customer_path(customer) %></td>
         <td><%= customer.contact_name %></td>
         <td><%= customer.address %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.phone %></td>
+        <td><%= customer.account.name if customer.account%></td>
+        <td><%= customer.category.name if customer.category%></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_customer_path(customer), :class => 'btn btn-default btn-xs' %>
