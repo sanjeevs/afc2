@@ -19,6 +19,9 @@ rails g scaffold supply_shipment order_amount:integer ship_date:date  supply:ref
 
 rails g scaffold supply_consumption supply:references used_amount:integer  production_run:references
 
+rails g scaffold account name:string
+rails g scaffold category name:string
+
 rake db:migrate
 
 rails generate bootstrap:install static
@@ -32,4 +35,7 @@ rails g bootstrap:themed product_shipments -f
 rails g bootstrap:themed supply_shipments -f
 rails g bootstrap:themed supply_consumptions -f
 rails g bootstrap:themed users -f
+
+rails g bootstrap:themed accounts -f
+rails g bootstrap:themed category -f
 

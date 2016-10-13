@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :accounts
   get '/home/show'
   root 'home#show'
   resources :sessions, only: [ :new, :create, :destroy ] 
