@@ -145,19 +145,5 @@ RSpec.describe RetailShelvesController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested retail_shelf" do
-      retail_shelf = RetailShelf.create! valid_attributes
-      expect {
-        delete :destroy, {:id => retail_shelf.to_param}, valid_session
-      }.to change(RetailShelf, :count).by(-1)
-    end
-
-    it "redirects to the retail_shelves list" do
-      retail_shelf = RetailShelf.create! valid_attributes
-      delete :destroy, {:id => retail_shelf.to_param}, valid_session
-      expect(response).to redirect_to(retail_shelves_url)
-    end
-  end
 
 end

@@ -144,19 +144,4 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested category" do
-      category = Category.create! valid_attributes
-      expect {
-        delete :destroy, {:id => category.to_param}, valid_session
-      }.to change(Category, :count).by(-1)
-    end
-
-    it "redirects to the categories list" do
-      category = Category.create! valid_attributes
-      delete :destroy, {:id => category.to_param}, valid_session
-      expect(response).to redirect_to(categories_url)
-    end
-  end
-
 end

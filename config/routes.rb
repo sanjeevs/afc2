@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :accounts
+  resources :categories, except: [:destroy]
+  resources :accounts, except: [:destroy]
   get '/home/show'
   root 'home#show'
   resources :sessions, only: [ :new, :create, :destroy ] 

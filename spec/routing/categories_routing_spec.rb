@@ -31,9 +31,5 @@ RSpec.describe CategoriesController, type: :routing do
       expect(:patch => "/categories/1").to route_to("categories#update", :id => "1")
     end
 
-    it "routes to #destroy" do
-      expect(:delete => "/categories/1").to route_to("categories#destroy", :id => "1")
-    end
-
   end
 end
