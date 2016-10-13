@@ -6,6 +6,8 @@ class Customer < ActiveRecord::Base
   # there are no shipments.
   has_many :product_shipments, dependent: :destroy
   has_many :retail_shelves, dependent: :destroy
+  belongs_to :account
+  belongs_to :category
 
   def product_shipped(product_id)
     shipments = [] 

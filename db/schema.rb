@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013102231) do
+ActiveRecord::Schema.define(version: 20161013111919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,12 @@ ActiveRecord::Schema.define(version: 20161013102231) do
     t.string   "phone"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "account_id"
+    t.integer  "category_id"
   end
 
+  add_index "customers", ["account_id"], name: "index_customers_on_account_id", using: :btree
+  add_index "customers", ["category_id"], name: "index_customers_on_category_id", using: :btree
   add_index "customers", ["unique_name"], name: "index_customers_on_unique_name", using: :btree
 
   create_table "producers", force: :cascade do |t|
@@ -167,6 +171,8 @@ ActiveRecord::Schema.define(version: 20161013102231) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_foreign_key "customers", "accounts"
+  add_foreign_key "customers", "categories"
   add_foreign_key "product_shipments", "customers"
   add_foreign_key "product_shipments", "production_runs"
   add_foreign_key "production_runs", "producers"
